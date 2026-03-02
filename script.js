@@ -2,13 +2,6 @@
 const cities = document.querySelectorAll('.city');
 const infoBox = document.getElementById('info-box');
 
-// Base de données locale pour les descriptions des villes
-const cityDescriptions = {
-    "tokyo": "Capitale effervescente, où les gratte-ciel néons côtoient les temples historiques.",
-    "kyoto": "Le cœur culturel du Japon, célèbre pour ses sanctuaires shinto et ses geishas.",
-    "sapporo": "Grande ville du nord, mondialement connue pour son festival de la neige et sa bière."
-};
-
 cities.forEach(city => {
     
     // 1. SURVOL : On met juste à jour la boîte d'info en bas
@@ -64,9 +57,9 @@ cities.forEach(city => {
             const cityId = city.id;
             
             // Ligne à décommenter (enlever les //) quand vous aurez créé tokyo.html, etc.
-            // window.location.href = `${cityId}.html`; 
+            window.location.href = `${cityId}.html`; 
             
-            alert(`Vous avez cliqué sur la ville ! Redirection vers ${cityId}.html`);
+            alert(`Déconvrons la ville de ${cityId} ensemble`);
         }
     });
 });
