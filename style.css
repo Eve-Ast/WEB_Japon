@@ -143,29 +143,48 @@ header {
     cursor: pointer;
     z-index: 10;
 }
-
-/* Le point */
+/* --- le point rouge --- */
 .dot {
-    width: 10px;
-    height: 10px;
-    background-color: red;
+    width: 5px;
+    height: 5px;
+    background-color: #ff3333; 
+    border: 2px solid white;
     border-radius: 50%;
-    border: 1px solid white;
-    box-shadow: 0 0 3px rgba(0,0,0,0.4);
-    transition: 0.3s;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    transition: all 0.3s ease; 
 }
 
-/* Le texte (nom de la ville) */
+/* le nom des villes */
 .city-name {
-    margin-top: 4px;
-    font-size: 13px;
-    color: black;
-    font-weight: 500;
-    transition: 0.3s;
-    background-color: rgba(255,255,255,0.7);
-    padding: 0 4px;
-    border-radius: 3px;
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 12px;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 2px 8px;
+    border-radius: 4px;
+    transition: all 0.3s ease; 
 }
+
+/* --- VOS EFFETS DYNAMIQUES AU SURVOL (Le jaune et le rouge !) --- */
+.city:hover {
+    z-index: 10; 
+}
+
+/* Le point devient jaune et grossit */
+.city:hover .dot {
+    background-color: #ffd700;
+    transform: scale(1.3);
+    box-shadow: 0 0 10px #ffd700;
+}
+
+/* Le texte devient blanc sur fond rouge et grossit */
+.city:hover .city-name {
+    color: white;
+    background-color: #e60000; 
+    transform: scale(1.2); 
+}
+
 
 /* La photo de la ville (cachée par défaut) */
 /* --- LE CARROUSEL D'IMAGES (Caché par défaut) --- */
@@ -255,4 +274,39 @@ footer {
 .footer-link:hover {
     text-decoration: underline;
     color: red;
+}
+
+/* ================================================= */
+/* --- POSITIONNEMENT DU TEXTE AUTOUR DU POINT --- */
+/* ================================================= */
+
+/* 1. Texte en HAUT et à GAUCHE du point (pour Kyoto ) */
+.city.label-topleft .city-name {
+    position: absolute;
+    bottom: 5px; /* Pousse le texte au-dessus */
+    right: 10px; /* Pousse le texte à gauche */
+    margin-top: 0;
+}
+
+/* 2. Texte en HAUT  et à DROITE du point (pour Takahama ) */
+.city.label-topright .city-name {
+    position: absolute;
+    bottom: 5px; /* Pousse le texte au-dessus */
+    left: 15px; /* Pousse le texte à droite */
+    margin-top: 0;
+}
+/* 3. Texte à GAUCHE du point (pour Kobe) */
+.city.label-left .city-name {
+    position: absolute;
+    right: 10px; /* Pousse le texte à gauche */
+    top: -2px; /* Aligne le texte avec le point à l'horizontale */
+    margin-top: 0;
+}
+
+/* 4. Texte à DROITE du point (pour Nara et Uji) */
+.city.label-right .city-name {
+    position: absolute;
+    left: 15px; /* Pousse le texte à droite */
+    top: -2px; /* Aligne le texte avec le point à l'horizontale */
+    margin-top: 0;
 }

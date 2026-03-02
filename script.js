@@ -1,62 +1,72 @@
-// On sélectionne toutes les villes de la carte
+// On sélectionne toutes les villes et la boîte d'information
 const cities = document.querySelectorAll('.city');
+const infoBox = document.getElementById('info-box');
+
+// Base de données locale pour les descriptions des villes
+const cityDescriptions = {
+    "tokyo": "Capitale effervescente, où les gratte-ciel néons côtoient les temples historiques.",
+    "kyoto": "Le cœur culturel du Japon, célèbre pour ses sanctuaires shinto et ses geishas.",
+    "sapporo": "Grande ville du nord, mondialement connue pour son festival de la neige et sa bière."
+};
 
 cities.forEach(city => {
-    const textElement = city.querySelector('.city-name');
-    const originalName = textElement.getAttribute('data-original');
-
-    // 1. CHANGEMENT DE TEXTE AU SURVOL
+    
+    // 1. SURVOL : On met juste à jour la boîte d'info en bas
     city.addEventListener('mouseenter', () => {
-        textElement.innerText = `📍 ${originalName} !`;
+        const cityId = city.id; 
+        const cityName = city.querySelector('.city-name').innerText; // Récupère le nom
+        
+        if (cityDescriptions[cityId]) {
+            infoBox.innerHTML = `<strong style="color: #e60000;">${cityName}</strong> : ${cityDescriptions[cityId]}`;
+        }
     });
 
+    // 2. FIN DU SURVOL : Remise à zéro de la boîte d'info
     city.addEventListener('mouseleave', () => {
-        textElement.innerText = originalName;
+        infoBox.innerHTML = "Survolez une ville pour voir sa description.";
     });
 
-    // 2. GESTION DU CARROUSEL D'IMAGES
+    // 3. GESTION DU CARROUSEL D'IMAGES (Flèches)
     const images = city.querySelectorAll('.carousel-images img');
     const prevBtn = city.querySelector('.carousel-btn.prev');
     const nextBtn = city.querySelector('.carousel-btn.next');
-    let currentIndex = 0; // On commence à la première image (index 0)
+    let currentIndex = 0; 
 
-    // Fonction pour afficher une image précise
     const showImage = (index) => {
         images.forEach((img, i) => {
-            img.classList.remove('active'); // Cache toutes les images
+            img.classList.remove('active'); 
             if (i === index) {
-                img.classList.add('active'); // Affiche la bonne
+                img.classList.add('active'); 
             }
         });
     };
 
-    // Si le bouton "Suivant" existe, on lui ajoute l'action de clic
     if (nextBtn) {
         nextBtn.addEventListener('click', (event) => {
-            event.stopPropagation(); // EMPÊCHE LA REDIRECTION VERS L'AUTRE PAGE
+            event.stopPropagation(); // Empêche de déclencher le clic sur la ville
             currentIndex = (currentIndex + 1) % images.length;
             showImage(currentIndex);
         });
     }
 
-    // Si le bouton "Précédent" existe
     if (prevBtn) {
         prevBtn.addEventListener('click', (event) => {
-            event.stopPropagation(); // EMPÊCHE LA REDIRECTION VERS L'AUTRE PAGE
-            // Calcul pour revenir en arrière sans faire d'erreur
+            event.stopPropagation(); // Empêche de déclencher le clic sur la ville
             currentIndex = (currentIndex - 1 + images.length) % images.length;
             showImage(currentIndex);
         });
     }
 
-    // 3. REDIRECTION VERS LA PAGE DE LA VILLE (Le lien)
+    // 4. CLIC SUR LA VILLE (REDIRECTION HTML)
     city.addEventListener('click', (event) => {
-        // Si on a cliqué sur le point rouge ou le nom (mais PAS sur le carrousel)
+        // On vérifie qu'on n'a pas cliqué sur une flèche du carrousel
         if (!event.target.closest('.carousel-container')) {
             const cityId = city.id;
             
-            // CORRECTION ICI : On a enlevé les "//" au début de la ligne !
-            window.location.href = `${cityId}.html`;
+            // Ligne à décommenter (enlever les //) quand vous aurez créé tokyo.html, etc.
+            // window.location.href = `${cityId}.html`; 
+            
+            alert(`Vous avez cliqué sur la ville ! Redirection vers ${cityId}.html`);
         }
     });
 });
