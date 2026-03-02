@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Découvrez le Japon - Accueil</title>
+    <!-- On relie bien le fichier CSS ici -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ================= EN-TÊTE FIXE ================= -->
+    <header id="main-header">
+        <!-- Logo SB qui ramène à l'accueil -->
+        <a href="index.html" class="logo">SB</a>
+
+        <!-- Barre de navigation avec menus déroulants -->
+        <nav>
+            <ul class="nav-links">
+                <li class="dropdown">
+                    <a href="#">Villes</a>
+                    <ul class="dropdown-content">
+                        <li><a href="tokyo.html">Tokyo</a></li>
+                        <li><a href="kyoto.html">Kyoto</a></li>
+                        <li><a href="osaka.html">Osaka</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Reco/Quizz</a>
+                    <ul class="dropdown-content">
+                        <li><a href="reco.html">Recommandations</a></li>
+                        <li><a href="quizz.html">Faire le Quizz</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="auteurs.html">Auteurs</a>
+                    <ul class="dropdown-content">
+                        <li><a href="auteurs.html#equipe">L'équipe</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <!-- ================= CONTENU PRINCIPAL ================= -->
+    <main class="content-wrapper">
+        
+        <!-- Colonne de gauche : Texte -->
+        <section class="left-text">
+            <h1>Découvrez le Japon !</h1>
+            <p>Le Japon est un pays d'Asie...</p>
+            <p class="instruction">cliquez sur les villes ;)</p>
+        </section>
+
+        <!-- Colonne de droite : Carte -->
+        <section class="right-map map-container">
+            <!-- Remplacez 'japon.gif' par le nom de votre image de carte -->
+            <img src="./img/carte_japon.png" alt="Carte du Japon" class="japan-map" >
+
+            <!-- Ville 1 : Tokyo -->
+           <div class="city" id="tokyo" style="top: 65%; left: 63%;">
+                
+                <!-- NOUVEAU : Le carrousel d'images -->
+                <div class="carousel-container">
+                    <button class="carousel-btn prev">&#10094;</button> <!-- Flèche gauche -->
+                    <div class="carousel-images">
+                        <!-- Ajoutez la classe "active" SEULEMENT sur la 1ère image -->
+                        <img src="./img/tokyo/tokyotower.png" alt="Tokyo 1" class="active" >
+                        <img src="./img/tokyo/akihabara.png" alt="Tokyo 2" >
+                        <img src="./img/tokyo/temple.png" alt="Tokyo 3">
+                        <img src="./img/tokyo/tower.png" alt="Tokyo 4">
+                        <img src="./img/tokyo/shinjuku.png" alt="Tokyo 5" >
+                    </div>
+                    <button class="carousel-btn next">&#10095;</button> <!-- Flèche droite -->
+                </div>
+                <!-- FIN DU CARROUSEL -->
+
+                <div class="dot"></div>
+                <div class="city-name" data-original="Tokyo">Tokyo</div>
+            </div>
+
+            <!-- Ville 2 : Kyoto -->
+
+            <div class="city" id="kyoto" style="top: 67%; left: 42%;">
+                
+                <!-- NOUVEAU : Le carrousel d'images -->
+                <div class="carousel-container">
+                    <button class="carousel-btn prev">&#10094;</button> <!-- Flèche gauche -->
+                    <div class="carousel-images">
+                        <!-- Ajoutez la classe "active" SEULEMENT sur la 1ère image -->
+                        <img src="./img/kyoto/trainmuseum.png" alt="Kyoto 1" class="active">
+                        <img src="./img/kyoto/tower.png" alt="Kyoto 2">
+                        <img src="./img/kyoto/kuramahead.png" alt="Kyoto 3">
+                        <img src="./img/kyoto/pavillonor.png" alt="Kyoto 4">
+                    </div>
+                    <button class="carousel-btn next">&#10095;</button> <!-- Flèche droite -->
+                </div>
+                <!-- FIN DU CARROUSEL -->
+
+                <div class="dot"></div>
+                <div class="city-name" data-original="Kyoto">Kyoto</div>
+            </div>
+
+            <!-- Ville 3 : Osaka -->
+            <div class="city" id="osaka" style="top: 71%; left: 48%;">
+                
+                <!-- NOUVEAU : Le carrousel d'images -->
+                <div class="carousel-container">
+                    <button class="carousel-btn prev">&#10094;</button> <!-- Flèche gauche -->
+                    <div class="carousel-images">
+                        <!-- Ajoutez la classe "active" SEULEMENT sur la 1ère image -->
+                        <img src="osaka1.jpg" alt="Osaka 1" class="active">
+                        <img src="osaka2.jpg" alt="Osaka 2">
+                        <img src="osaka3.jpg" alt="Osaka 3">
+                    </div>
+                    <button class="carousel-btn next">&#10095;</button> <!-- Flèche droite -->
+                </div>
+                <!-- FIN DU CARROUSEL -->
+
+                <div class="dot"></div>
+                <div class="city-name" data-original="Osaka">Osaka</div>
+            </div>
+            
+            <!-- Vous pouvez ajouter Takahama, Nara, Kobe, Uji sur le même modèle en ajustant top et left -->
+        </section>
+
+    </main>
+
+    <!-- ================= PIED DE PAGE ================= -->
+    <footer>
+        <div class="footer-content">
+            <a href="auteurs.html" class="footer-link">Auteurs</a>
+            <p>Sources images : <a href="#">lien source 1</a>, <a href="#">lien source 2</a>...</p>
+        </div>
+    </footer>
+
+    <!-- On relie bien le fichier JS ici -->
+    <script src="script.js"></script>
+</body>
+</html>
