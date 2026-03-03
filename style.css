@@ -1,6 +1,6 @@
 /* --- Styles de base --- */
 body {
-    font-family:  Verdana, 'Arial Black', 'Gill Sans', Futura, Impact, sans-serif;
+    /*font-family:  Verdana, 'Arial Black', 'Gill Sans', Futura, Impact, sans-serif;*/
     margin: 0;
     padding: 0;
     background-color: #fcfcfc;
@@ -38,7 +38,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family:   Verdana, 'Arial Black', 'Gill Sans', Futura, Impact, sans-serif;
+    /*font-family:  Verdana, 'Arial Black', 'Gill Sans', Futura, Impact, sans-serif;*/
 }
 /* Menus de navigation */
 .nav-links {
@@ -124,8 +124,8 @@ header {
 
 /* Carte à droite */
 .map-container {
-    width: 45%; /* On réduit un peu la carte pour laisser de la place */
-    min-width: 350px; /* Sécurité pour la carte aussi */
+    width: 75%; /* On réduit un peu la carte pour laisser de la place */
+    min-width: 450px; /* Sécurité pour la carte aussi */
 
     position: relative;
     display: block; 
