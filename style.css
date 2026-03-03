@@ -106,7 +106,8 @@ header {
 
 /* Texte à gauche */
 .left-text {
-    width: 40%;
+    width: 50%; 
+    min-width: 300px; 
 }
 
 .left-text h1 {
@@ -123,14 +124,18 @@ header {
 
 /* Carte à droite */
 .map-container {
-    width: 55%;
+    width: 45%; /* On réduit un peu la carte pour laisser de la place */
+    min-width: 350px; /* Sécurité pour la carte aussi */
+
     position: relative;
-    display: inline-block;
+    display: block; 
+    height: fit-content; /* Le conteneur s'adapte strictement à la hauteur de l'image */
 }
 
 .japan-map {
     width: 100%;
     height: auto;
+    display: block;
 }
 
 /* --- Villes sur la carte --- */
