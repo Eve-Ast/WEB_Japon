@@ -3,19 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Découvrez le Japon - Accueil</title>
-    <!-- On relie bien le fichier CSS ici -->
-    <link rel="stylesheet" href="style.css">
+    <title>Tokyo — Découvrez le Japon</title>
+    <link rel="stylesheet" href="style_tokyo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-    <!-- ================= EN-TÊTE FIXE ================= -->
     <header id="main-header">
-        <!-- Logo SB qui ramène à l'accueil -->
         <a href="pagedegardebis.html" class="logo">SB</a>
-
-        <!-- Barre de navigation avec menus déroulants -->
         <nav>
             <ul class="nav-links">
                 <li class="dropdown">
@@ -45,17 +41,154 @@
                 </li>
             </ul>
         </nav>
-
     </header>
 
-      <!-- ================= PIED DE PAGE ================= -->
+    <!-- HERO -->
+    <section class="hero" style="background-image: url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1800&q=80');">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-label">東京</p>
+            <h1 class="hero-title">Tokyo</h1>
+            <p class="hero-text">Métropole au carrefour des traditions millénaires et de l'hypermodernité, Tokyo est une ville qui ne dort jamais. Entre temples ancestraux et néons éblouissants, elle révèle à chaque coin de rue une facette inattendue du Japon contemporain.</p>
+        </div>
+        <div class="scroll-hint">↓</div>
+    </section>
+
+    <!-- SOMMAIRE -->
+    <section class="sommaire" id="sommaire">
+        <div class="sommaire-grid">
+            <a href="#que-faire" class="sommaire-card" data-index="0">
+                <div class="sommaire-img" style="background-image: url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80');"></div>
+                <div class="sommaire-label">
+                    <span class="sommaire-num">01</span>
+                    <span class="sommaire-name">Que faire ?</span>
+                </div>
+                <div class="sommaire-overlay"></div>
+            </a>
+            <a href="#ou-manger" class="sommaire-card" data-index="1">
+                <div class="sommaire-img" style="background-image: url('https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=800&q=80');"></div>
+                <div class="sommaire-label">
+                    <span class="sommaire-num">02</span>
+                    <span class="sommaire-name">Où manger ?</span>
+                </div>
+                <div class="sommaire-overlay"></div>
+            </a>
+            <a href="#evenements" class="sommaire-card" data-index="2">
+                <div class="sommaire-img" style="background-image: url('https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=800&q=80');"></div>
+                <div class="sommaire-label">
+                    <span class="sommaire-num">03</span>
+                    <span class="sommaire-name">Événements</span>
+                </div>
+                <div class="sommaire-overlay"></div>
+            </a>
+        </div>
+    </section>
+
+    <!-- QUE FAIRE -->
+    <section class="section-block" id="que-faire">
+        <div class="section-header">
+            <span class="section-tag">01</span>
+            <h2 class="section-title">Que faire ?</h2>
+            <p class="section-desc">Temples, jardins, quartiers animés… Tokyo offre une infinité d'expériences à qui sait regarder.</p>
+        </div>
+        <div class="carousel-wrapper">
+            <button class="carousel-btn prev" id="prev-btn">&#8592;</button>
+            <div class="carousel-track-container">
+                <div class="carousel-track" id="carousel-track">
+                    <a href="https://www.senso-ji.jp/" target="_blank" class="carousel-item">
+                        <div class="ci-img" style="background-image: url('https://images.unsplash.com/photo-1529154036614-a60975f5c760?w=600&q=80');"></div>
+                        <div class="ci-overlay"><span class="ci-name">Senso-ji</span></div>
+                    </a>
+                    <a href="https://www.tokyoskytree.jp/en/" target="_blank" class="carousel-item">
+                        <div class="ci-img" style="background-image: url('https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=600&q=80');"></div>
+                        <div class="ci-overlay"><span class="ci-name">Tokyo Skytree</span></div>
+                    </a>
+                    <a href="https://www.meijijingu.or.jp/en/" target="_blank" class="carousel-item">
+                        <div class="ci-img" style="background-image: url('https://images.unsplash.com/photo-1570521462033-3015e76e7432?w=600&q=80');"></div>
+                        <div class="ci-overlay"><span class="ci-name">Meiji Jingu</span></div>
+                    </a>
+                    <a href="https://www.timeout.com/tokyo/travel/shibuya-crossing" target="_blank" class="carousel-item">
+                        <div class="ci-img" style="background-image: url('https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=600&q=80');"></div>
+                        <div class="ci-overlay"><span class="ci-name">Shibuya Crossing</span></div>
+                    </a>
+                    <a href="https://www.env.go.jp/garden/shinjukugyoen/english/" target="_blank" class="carousel-item">
+                        <div class="ci-img" style="background-image: url('https://images.unsplash.com/photo-1513407030348-c983a97b98d8?w=600&q=80');"></div>
+                        <div class="ci-overlay"><span class="ci-name">Shinjuku Gyoen</span></div>
+                    </a>
+                    <a href="https://www.gotokyo.org/en/destinations/odaiba/index.html" target="_blank" class="carousel-item">
+                        <div class="ci-img" style="background-image: url('https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=600&q=80');"></div>
+                        <div class="ci-overlay"><span class="ci-name">Odaiba</span></div>
+                    </a>
+                </div>
+            </div>
+            <button class="carousel-btn next" id="next-btn">&#8594;</button>
+        </div>
+    </section>
+
+    <!-- OÙ MANGER -->
+    <section class="section-block section-alt" id="ou-manger">
+        <div class="section-header">
+            <span class="section-tag">02</span>
+            <h2 class="section-title">Où manger ?</h2>
+            <p class="section-desc">Ramen, sushi, izakaya… La gastronomie tokyoïte est un voyage à elle seule.</p>
+        </div>
+        <div class="manger-grid">
+            <div class="manger-card">
+                <div class="manger-img" style="background-image: url('https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=700&q=80');"></div>
+                <div class="manger-info"><h3>Traditionnel</h3><p>Ramen, sushi, tempura… les classiques de la cuisine japonaise.</p></div>
+            </div>
+            <div class="manger-card">
+                <div class="manger-img" style="background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=700&q=80');"></div>
+                <div class="manger-info"><h3>Végétarien</h3><p>Tofu, légumes de saison, cuisine shojin… le Japon vert.</p></div>
+            </div>
+            <div class="manger-card">
+                <div class="manger-img" style="background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&q=80');"></div>
+                <div class="manger-info"><h3>Autres</h3><p>Fusion, street food, cafés à thèmes… Tokyo surprend toujours.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÉVÉNEMENTS -->
+    <section class="section-block" id="evenements">
+        <div class="section-header">
+            <span class="section-tag">03</span>
+            <h2 class="section-title">Événements</h2>
+            <p class="section-desc">Chaque mois, Tokyo s'anime au rythme de ses festivals et célébrations.</p>
+        </div>
+        <div class="timeline-wrapper">
+            <div class="timeline-scroll">
+                <div class="timeline-line"></div>
+                <div class="timeline-months">
+                    <div class="t-month"><div class="t-dot" data-event="Hatsumode" data-desc="Premier pèlerinage de l'année dans les temples. Des millions de Japonais se rendent au sanctuaire Meiji." data-img="https://images.unsplash.com/photo-1578469550956-0e16b69c6a3d?w=300&q=80"></div><span class="t-label">Jan</span></div>
+                    <div class="t-month"><div class="t-dot" data-event="Setsubun" data-desc="Fête des haricots pour chasser les démons et accueillir le printemps. Cérémonies dans tout Tokyo." data-img="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=300&q=80"></div><span class="t-label">Fév</span></div>
+                    <div class="t-month"><div class="t-dot" data-event="Hanami 🌸" data-desc="Floraison des cerisiers — l'un des moments les plus magiques du calendrier japonais." data-img="https://images.unsplash.com/photo-1522383225653-ed111181a951?w=300&q=80"></div><span class="t-label">Mar</span></div>
+                    <div class="t-month"><div class="t-dot" data-event="Hanami (fin)" data-desc="La saison des cerisiers se prolonge à Ueno et Chidorigafuchi jusqu'en avril." data-img="https://images.unsplash.com/photo-1513407030348-c983a97b98d8?w=300&q=80"></div><span class="t-label">Avr</span></div>
+                    <div class="t-month"><div class="t-dot" data-event="Golden Week" data-desc="La grande semaine de congés nationaux. Animations et événements partout dans la ville." data-img="https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=300&q=80"></div><span class="t-label">Mai</span></div>
+                    <div class="t-month"><div class="t-dot" data-event="Sanno Matsuri" data-desc="L'un des trois grands festivals de Tokyo, procession solennelle autour du sanctuaire Hie." data-img="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=300&q=80"></div><span class="t-label">Juin</span></div>
+                    <div class="t-month"><div class="t-dot" data-event="Sumida Fireworks" data-desc="Le plus grand feu d'artifice de Tokyo illumine le ciel au-dessus de la rivière Sumida." data-img="https://images.unsplash.com/photo-1517685352821-92cf88aee5a5?w=300&q=80"></div><span class="t-label">Juil</span></div>
+                    <div class="t-month"><div class="t-dot" data-event="Obon" data-desc="Fête des ancêtres. Danses traditionnelles Bon Odori dans les quartiers de Tokyo." data-img="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=300&q=80"></div><span class="t-label">Aoû</span></div>
+                    <div class="t-month"><div class="t-dot" data-event="Tokyo Game Show" data-desc="Le plus grand salon mondial du jeu vidéo se tient à Makuhari Messe, près de Tokyo." data-img="https://images.unsplash.com/photo-1560419015-7c427e8ae5ba?w=300&q=80"></div><span class="t-label">Sep</span></div>
+                    <div class="t-month"><div class="t-dot" data-event="Halloween Shibuya" data-desc="Shibuya se transforme en l'une des plus grandes fêtes d'Halloween spontanées au monde." data-img="https://images.unsplash.com/photo-1508361001413-7a9dca21d08a?w=300&q=80"></div><span class="t-label">Oct</span></div>
+                    <div class="t-month"><div class="t-dot" data-event="Koyo 🍂" data-desc="L'automne embrase les parcs de rouge et d'or. Shinjuku Gyoen et Rikugien sont splendides." data-img="https://images.unsplash.com/photo-1570521462033-3015e76e7432?w=300&q=80"></div><span class="t-label">Nov</span></div>
+                    <div class="t-month"><div class="t-dot" data-event="Illuminations de Noël" data-desc="Omotesando et Marunouchi s'illuminent de millions de lumières pour les fêtes de fin d'année." data-img="https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=300&q=80"></div><span class="t-label">Déc</span></div>
+                </div>
+            </div>
+            <div class="event-tooltip" id="event-tooltip">
+                <img src="" alt="" class="tooltip-img" id="tooltip-img">
+                <div class="tooltip-body">
+                    <strong id="tooltip-name"></strong>
+                    <p id="tooltip-desc"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="footer-content">
             <a href="auteurs.html" class="footer-link">Auteurs</a>
         </div>
     </footer>
 
-    <!-- On relie bien le fichier JS ici -->
-    <script src="script.js"></script>
+    <script src="script_tokyo.js"></script>
 </body>
 </html>
