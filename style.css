@@ -1,6 +1,6 @@
 /* --- Styles de base --- */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:  Verdana, 'Arial Black', 'Gill Sans', Futura, Impact, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #fcfcfc;
@@ -27,20 +27,20 @@ header {
 
 /* Logo "SB" */
 .logo {
-    position: absolute; /* CORRECTION : Force le logo à rester à gauche */
-    left: 30px;
+    position: absolute; /* Force le logo à rester à gauche */
+    left: 10px;
     text-decoration: none;
-    color: red;
+    color:  #d62020;
     font-weight: bold;
     font-size: 24px;
-    border: 2px solid red;
+    border: 1px solid black;
     border-radius: 50%;
     width: 45px;
     height: 45px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Comic Sans MS', cursive, sans-serif; 
+    font-family:   Verdana, 'Arial Black', 'Gill Sans', Futura, Impact, sans-serif;
 }
 /* Menus de navigation */
 .nav-links {
@@ -68,7 +68,8 @@ header {
     display: none; /* Caché par défaut */
     position: absolute;
     top: 100%;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: white;
     min-width: 180px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.1);
@@ -82,6 +83,7 @@ header {
     color: #333;
     padding: 10px 20px;
     display: block;
+    text-align: center; 
 }
 
 .dropdown-content li a:hover {
@@ -136,13 +138,13 @@ header {
 /* --- Villes sur la carte --- */
 .city {
     position: absolute;
-    transform: translate(-50%, -50%); /* Centre parfaitement */
+    transform: translate(-50%, -50%); 
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    z-index: 10;
-}
+    z-index: 1; }
+
 /* --- le point rouge --- */
 .dot {
     width: 5px;
@@ -168,7 +170,7 @@ header {
 
 /* --- VOS EFFETS DYNAMIQUES AU SURVOL (Le jaune et le rouge !) --- */
 .city:hover {
-    z-index: 10; 
+    z-index: 999; /*  Passe tout au premier plan absolu */
 }
 
 /* Le point devient jaune et grossit */
@@ -188,18 +190,21 @@ header {
 
 /* La photo de la ville (cachée par défaut) */
 /* --- LE CARROUSEL D'IMAGES (Caché par défaut) --- */
+
 .carousel-container {
-    display: none; /* Caché tant qu'on ne survole pas */
+    display: none; 
     position: absolute;
     bottom: 25px; 
-    width: 140px; /* Un peu plus large pour laisser la place aux flèches */
+    left: 50%; /* <-- NOUVEAU : Centre l'image à la verticale du point */
+    transform: translateX(-50%); /* <-- NOUVEAU : Centre parfaitement */
+    width: 140px; 
     height: 200px;
     border: 3px solid white;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(132, 123, 123, 0.3);
     z-index: 20;
     background-color: black;
-    overflow: hidden; /* Empêche les images de déborder */
+    overflow: hidden; 
 }
 
 /* Affiche le carrousel au survol de la ville */
@@ -307,6 +312,35 @@ footer {
 .city.label-right .city-name {
     position: absolute;
     left: 15px; /* Pousse le texte à droite */
-    top: -2px; /* Aligne le texte avec le point à l'horizontale */
+    top: -5px; /* Aligne le texte avec le point à l'horizontale */
     margin-top: 0;
+}
+
+
+/* ================================================= */
+/* --- POSITIONS SPÉCIFIQUES DES PHOTOS --- */
+/* ================================================= */
+
+/* 1. Photos en BAS (Pour Osaka et Nara) */
+.city.carousel-bottom .carousel-container {
+    bottom: auto;
+    top: 100%; 
+    margin-top: 4px; /* Pousse l'image sous le point sans cacher les noms */
+}
+
+/* 2. Photos à GAUCHE (Pour Kobe) */
+.city.carousel-left .carousel-container {
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%); /* Centre l'image verticalement par rapport au point */
+    left: auto;
+    right: 60px; /* Assez loin pour ne pas cacher le nom de la ville */
+}
+
+/* 3. Photos à DROITE (Pour Uji) */
+.city.carousel-right .carousel-container {
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%); /* Centre l'image verticalement */
+    left: 52px; /* Assez loin pour ne pas cacher le nom de la ville */
 }
