@@ -1,10 +1,10 @@
 /* --- Styles de base --- */
 body {
-    font-family:  Verdana, 'Arial Black', 'Gill Sans', Futura, Impact, sans-serif;
+    font-family:  'Arial Black', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #fcfcfc;
-    color: #333;
+    background-color: black;
+    color: white;
     padding-top: 80px; /* Laisse de l'espace pour que l'en-tête fixe ne cache pas le titre */
 }
 
@@ -38,8 +38,9 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family:   Verdana, 'Arial Black', 'Gill Sans', Futura, Impact, sans-serif;
+    font-family: 'Arial Black', sans-serif;
 }
+
 /* Menus de navigation */
 .nav-links {
     list-style: none;
@@ -94,19 +95,20 @@ header {
     display: block;
 }
 
-
 /* --- Contenu Principal (Texte + Carte) --- */
 .content-wrapper {
     display: flex;
     justify-content: space-between;
+    align-items: center; /* CORRECTION CRUCIALE : Empêche la carte de s'étirer verticalement (règle le bug des points) */
     padding: 40px;
     max-width: 1200px;
     margin: 0 auto;
+    gap: 40px;
 }
 
 /* Texte à gauche */
 .left-text {
-    width: 40%;
+    width: 45%; 
 }
 
 .left-text h1 {
@@ -116,21 +118,22 @@ header {
 
 .instruction {
     font-style: italic;
-    color: #666;
+    color: #ccc;
     margin-top: 30px;
     font-size: 1.2em;
 }
 
 /* Carte à droite */
 .map-container {
-    width: 55%;
+    width: 55%; 
     position: relative;
-    display: inline-block;
+    display: block; 
 }
 
 .japan-map {
     width: 100%;
     height: auto;
+    display: block;
 }
 
 /* --- Villes sur la carte --- */
@@ -141,7 +144,8 @@ header {
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    z-index: 1; }
+    z-index: 1; 
+}
 
 /* --- le point rouge --- */
 .dot {
@@ -166,35 +170,30 @@ header {
     transition: all 0.3s ease; 
 }
 
-/* --- VOS EFFETS DYNAMIQUES AU SURVOL (Le jaune et le rouge !) --- */
+/* --- VOS EFFETS DYNAMIQUES AU SURVOL --- */
 .city:hover {
-    z-index: 999; /*  Passe tout au premier plan absolu */
+    z-index: 999; 
 }
 
-/* Le point devient jaune et grossit */
 .city:hover .dot {
     background-color: #ffd700;
     transform: scale(1.3);
     box-shadow: 0 0 10px #ffd700;
 }
 
-/* Le texte devient blanc sur fond rouge et grossit */
 .city:hover .city-name {
     color: white;
     background-color: #e60000; 
     transform: scale(1.2); 
 }
 
-
-/* La photo de la ville (cachée par défaut) */
-/* --- LE CARROUSEL D'IMAGES (Caché par défaut) --- */
-
+/* --- LE CARROUSEL D'IMAGES --- */
 .carousel-container {
     display: none; 
     position: absolute;
     bottom: 25px; 
-    left: 50%; /* <-- NOUVEAU : Centre l'image à la verticale du point */
-    transform: translateX(-50%); /* <-- NOUVEAU : Centre parfaitement */
+    left: 50%; 
+    transform: translateX(-50%); 
     width: 140px; 
     height: 200px;
     border: 3px solid white;
@@ -205,19 +204,16 @@ header {
     overflow: hidden; 
 }
 
-/* Affiche le carrousel au survol de la ville */
 .city:hover .carousel-container {
     display: block; 
 }
 
-/* Zone contenant les images */
 .carousel-images {
     width: 100%;
     height: 100%;
     position: relative;
 }
 
-/* Style de toutes les images (cachées par défaut avec opacity: 0) */
 .carousel-images img {
     width: 100%;
     height: 100%;
@@ -226,10 +222,9 @@ header {
     top: 0;
     left: 0;
     opacity: 0;
-    transition: opacity 0s ease-in-out; /* Fondu animé */
+    transition: opacity 0s ease-in-out; 
 }
 
-/* Seule l'image avec la classe "active" est visible */
 .carousel-images img.active {
     opacity: 1;
     z-index: 1;
@@ -240,7 +235,7 @@ header {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5); /* Fond noir transparent */
+    background-color: rgba(0, 0, 0, 0.5); 
     color: white;
     border: none;
     cursor: pointer;
@@ -252,7 +247,7 @@ header {
 }
 
 .carousel-btn:hover {
-    background-color: red; /* Devient rouge au survol */
+    background-color: red; 
 }
 
 .carousel-btn.prev { left: 5px; }
@@ -264,12 +259,12 @@ footer {
     padding: 20px;
     margin-top: 50px;
     text-align: center;
-    background-color: #fff;
+    background-color: #000;
 }
 
 .footer-link {
     font-size: 1.2em;
-    color: #333;
+    color: #fff;
     text-decoration: none;
     font-weight: bold;
 }
@@ -283,62 +278,97 @@ footer {
 /* --- POSITIONNEMENT DU TEXTE AUTOUR DU POINT --- */
 /* ================================================= */
 
-/* 1. Texte en HAUT et à GAUCHE du point (pour Kyoto ) */
 .city.label-topleft .city-name {
     position: absolute;
-    bottom: 5px; /* Pousse le texte au-dessus */
-    right: 10px; /* Pousse le texte à gauche */
+    bottom: 5px; 
+    right: 10px; 
     margin-top: 0;
 }
 
-/* 2. Texte en HAUT  et à DROITE du point (pour Takahama ) */
 .city.label-topright .city-name {
     position: absolute;
-    bottom: 5px; /* Pousse le texte au-dessus */
-    left: 15px; /* Pousse le texte à droite */
+    bottom: 5px; 
+    left: 15px; 
     margin-top: 0;
 }
-/* 3. Texte à GAUCHE du point (pour Kobe) */
+
 .city.label-left .city-name {
     position: absolute;
-    right: 10px; /* Pousse le texte à gauche */
-    top: -2px; /* Aligne le texte avec le point à l'horizontale */
+    right: 10px; 
+    top: -2px; 
     margin-top: 0;
 }
 
-/* 4. Texte à DROITE du point (pour Nara et Uji) */
 .city.label-right .city-name {
     position: absolute;
-    left: 15px; /* Pousse le texte à droite */
-    top: -5px; /* Aligne le texte avec le point à l'horizontale */
+    left: 15px; 
+    top: -5px; 
     margin-top: 0;
 }
-
 
 /* ================================================= */
 /* --- POSITIONS SPÉCIFIQUES DES PHOTOS --- */
 /* ================================================= */
 
-/* 1. Photos en BAS (Pour Osaka et Nara) */
 .city.carousel-bottom .carousel-container {
     bottom: auto;
     top: 100%; 
-    margin-top: 4px; /* Pousse l'image sous le point sans cacher les noms */
+    margin-top: 4px; 
 }
 
-/* 2. Photos à GAUCHE (Pour Kobe) */
 .city.carousel-left .carousel-container {
     bottom: auto;
     top: 50%;
-    transform: translateY(-50%); /* Centre l'image verticalement par rapport au point */
+    transform: translateY(-50%); 
     left: auto;
-    right: 60px; /* Assez loin pour ne pas cacher le nom de la ville */
+    right: 60px; 
 }
 
-/* 3. Photos à DROITE (Pour Uji) */
 .city.carousel-right .carousel-container {
     bottom: auto;
     top: 50%;
-    transform: translateY(-50%); /* Centre l'image verticalement */
-    left: 52px; /* Assez loin pour ne pas cacher le nom de la ville */
+    transform: translateY(-50%); 
+    left: 52px; 
+}
+
+
+/* ================================================= */
+/* --- DESIGN RESPONSIVE (Téléphones & Tablettes) --- */
+/* ================================================= */
+
+/* Pour les écrans moyens (Tablettes et petits ordinateurs) */
+@media (max-width: 1024px) {
+    .content-wrapper {
+        flex-direction: column; /* Le texte passe en haut, la carte en bas */
+        padding: 20px;
+    }
+    .left-text {
+        width: 100%;
+        text-align: center; /* Centre le texte principal */
+        margin-bottom: 20px;
+    }
+    .map-container {
+        width: 100%; /* La carte prend toute la largeur disponible */
+        max-width: 700px; /* Mais pas plus de 700px pour rester jolie */
+    }
+}
+
+/* Pour les petits écrans (Téléphones) */
+@media (max-width: 768px) {
+    header {
+        justify-content: space-between;
+        padding: 0 15px;
+    }
+    .logo {
+        position: static; /* Le logo s'intègre naturellement avec le reste */
+    }
+    .nav-links {
+        gap: 15px; /* Rapproche les onglets */
+    }
+    .nav-links > li > a {
+        font-size: 14px; /* Réduit un peu la taille de la police du menu */
+    }
+    .left-text h1 {
+        font-size: 2.2em; /* Réduit la taille du grand titre "Découvrez le Japon" */
+    }
 }
