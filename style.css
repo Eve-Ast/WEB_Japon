@@ -75,6 +75,7 @@ header {
     list-style: none;
     padding: 10px 0;
     border-radius: 5px;
+    font-family: 'Shippori Mincho', serif;
 }
 
 .dropdown-content li a {
@@ -95,6 +96,7 @@ header {
     display: block;
 }
 
+
 /* --- Contenu Principal (Texte + Carte) --- */
 .content-wrapper {
     display: flex;
@@ -108,7 +110,7 @@ header {
 
 /* Texte à gauche */
 .left-text {
-    width: 45%; 
+    width: 50%; 
 }
 
 .left-text h1 {
@@ -117,10 +119,17 @@ header {
 }
 
 .instruction {
+    font-family: 'Shippori Mincho', serif;
     font-style: italic;
     color: #ccc;
     margin-top: 30px;
-    font-size: 1.2em;
+    font-size: 1em;
+}
+
+.intro-text {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.2rem;
+    color: white; /* selon ton design */
 }
 
 /* Carte à droite */
@@ -168,6 +177,7 @@ header {
     padding: 2px 8px;
     border-radius: 4px;
     transition: all 0.3s ease; 
+    font-family: 'Shippori Mincho', serif;
 }
 
 /* --- VOS EFFETS DYNAMIQUES AU SURVOL --- */
@@ -259,18 +269,17 @@ footer {
     padding: 20px;
     margin-top: 50px;
     text-align: center;
-    background-color: #000;
+    background-color: white;
 }
 
 .footer-link {
     font-size: 1.2em;
-    color: #fff;
+    color: #333;
     text-decoration: none;
     font-weight: bold;
 }
 
 .footer-link:hover {
-    text-decoration: underline;
     color: red;
 }
 
