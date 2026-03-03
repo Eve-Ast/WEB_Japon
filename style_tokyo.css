@@ -15,47 +15,131 @@ html { scroll-behavior: smooth; }
 
 body {
     font-family: 'DM Sans', sans-serif;
+    /* font-family: 'Arial Black', sans-serif; */
     background: var(--paper);
     color: var(--ink);
     overflow-x: hidden;
 }
 
 /* ===== HEADER (compatibilité avec style.css existant) ===== */
-#main-header {
+/* #main-header {
     position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 2.5rem; height: 64px;
     background: rgba(14,12,10,0.92);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(201,168,76,0.2);
+} */
+header {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: right; 
+    align-items: center;
+    padding: 0 30px;
+    box-sizing: border-box;
+    z-index: 1000; 
 }
-.logo {
+
+/* .logo {
     font-family: 'Shippori Mincho', serif;
     font-size: 1.4rem; font-weight: 800;
     color: var(--gold); text-decoration: none;
     letter-spacing: 2px;
+} */
+
+.logo {
+    position: absolute; /* Force le logo à rester à gauche */
+    left: 10px;
+    text-decoration: none;
+    color:  #d62020;
+    font-weight: bold;
+    font-size: 24px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial Black', sans-serif;
 }
-.nav-links { list-style: none; display: flex; gap: 2rem; }
-.nav-links > li > a {
+
+/* Menu de navigation */ 
+/* .nav-links { list-style: none; display: flex; gap: 2rem; } */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 100px;
+    margin: 0;
+    padding: 0;
+}
+
+/* .nav-links > li > a {
     color: #e8e4dc; text-decoration: none;
     font-size: 0.85rem; font-weight: 400;
     letter-spacing: 0.05em; text-transform: uppercase;
     transition: color 0.2s;
+} */
+
+.nav-links > li > a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    padding: 10px 0;
+    border-bottom: 2px solid transparent;
 }
-.nav-links > li > a:hover { color: var(--gold); }
+
+.nav-links > li > a:hover { color: #d62020; } /* Changer de couleur quand on passe la souris dessus */
+
+/* Menu déroulant */ 
 .dropdown { position: relative; }
-.dropdown-content {
+
+/* .dropdown-content {
     display: none; position: absolute; top: 100%; left: 0;
     background: rgba(14,12,10,0.97); border: 1px solid rgba(201,168,76,0.2);
     list-style: none; min-width: 160px; z-index: 999;
+} */
+
+.dropdown-content {
+    display: none; /* Caché par défaut */
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    min-width: 180px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    list-style: none;
+    padding: 10px 0;
+    border-radius: 5px;
+    font-family: 'Shippori Mincho', serif;
 }
+
 .dropdown:hover .dropdown-content { display: block; }
-.dropdown-content li a {
+
+/* .dropdown-content li a {
     display: block; padding: 0.6rem 1.2rem;
     color: #ccc; text-decoration: none; font-size: 0.82rem;
     transition: background 0.2s, color 0.2s;
+} */
+.dropdown-content li a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 20px;
+    display: block;
+    text-align: center; 
 }
-.dropdown-content li a:hover { background: rgba(201,168,76,0.1); color: var(--gold); }
+
+/* .dropdown-content li a:hover { background: rgba(201,168,76,0.1); color: var(--gold); } */
+.dropdown-content li a:hover {
+    background-color: #f1f1f1;
+    color: red;
+}
+
 
 /* ===== HERO ===== */
 .hero {
@@ -72,11 +156,7 @@ body {
     position: relative; z-index: 1;
     max-width: 720px; padding: 0 5vw;
 }
-.hero-label {
-    font-family: 'Shippori Mincho', serif;
-    font-size: 1.1rem; color: var(--gold);
-    letter-spacing: 0.4em; margin-bottom: 0.5rem;
-}
+
 .hero-title {
     font-family: 'Shippori Mincho', serif;
     font-size: clamp(4rem, 9vw, 8rem);
