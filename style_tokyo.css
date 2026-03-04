@@ -318,6 +318,89 @@ header {
 }
 .manger-info p { color: rgba(240,235,225,0.6); font-size: 0.9rem; line-height: 1.6; }
 
+
+/* ===== MANGER CAROUSEL ===== */
+.manger-carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.manger-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.manger-slide {
+    min-width: 100%;
+    position: relative;
+    text-decoration: none;
+}
+
+.manger-img {
+    height: 260px;
+    background-size: cover;
+    background-position: center;
+}
+
+.manger-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.manger-overlay span {
+    color: white;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.3rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.manger-slide:hover .manger-overlay {
+    background: rgba(0,0,0,0.55);
+}
+
+.manger-slide:hover .manger-overlay span {
+    opacity: 1;
+}
+
+.manger-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--ink);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.manger-btn.prev { left: 5px; }
+.manger-btn.next { right: 5px; }
+
+.manger-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Titre sous le carrousel */
+.manger-title {
+    margin-top: 1rem;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.5rem; 
+    font-weight: 600;
+    color: var(--paper);
+    letter-spacing: 0.05em;
+}
+
+
 /* ===== ÉVÉNEMENTS FRISE ===== */
 .timeline-wrapper { max-width: 1100px; margin: 0 auto; position: relative; }
 .timeline-scroll { overflow-x: auto; padding-bottom: 1rem; }
@@ -329,7 +412,7 @@ header {
 .timeline-line {
     position: absolute; top: calc(3.5rem + 14px);
     left: 2rem; right: 2rem; height: 2px;
-    background: linear-gradient(to right, var(--gold), rgba(192,57,43,0.5), var(--gold));
+    background: linear-gradient(to right, var(--red), rgba(192,57,43,0.5), var(--red));
 }
 .t-month {
     flex: 1; display: flex; flex-direction: column;
@@ -337,7 +420,7 @@ header {
 }
 .t-dot {
     width: 16px; height: 16px; border-radius: 50%;
-    background: var(--paper); border: 3px solid var(--gold);
+    background: var(--paper); border: 3px solid var(--red);
     cursor: pointer; position: relative; z-index: 2;
     transition: transform 0.25s ease, background 0.25s ease;
 }
@@ -379,7 +462,7 @@ footer {
     border-top: 1px solid rgba(201,168,76,0.15);
     padding: 2rem 5vw; text-align: center;
 }
-.footer-link { color: var(--muted); text-decoration: none; font-size: 0.85rem; }
+.footer-link { color: var(--ink); text-decoration: none; font-size: 0.85rem; }
 .footer-link:hover { color: var(--red); }
 
 /* ===== RESPONSIVE ===== */

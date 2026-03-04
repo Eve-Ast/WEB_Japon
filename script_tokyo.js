@@ -74,3 +74,27 @@ const header = document.getElementById('main-header');
 window.addEventListener('scroll', () => {
     header.style.background = '#f5f2ec';
 });
+
+// ===== MANGER CAROUSELS =====
+document.querySelectorAll('.manger-carousel').forEach(carousel => {
+    const track = carousel.querySelector('.manger-track');
+    const slides = carousel.querySelectorAll('.manger-slide');
+    const prev = carousel.querySelector('.prev');
+    const next = carousel.querySelector('.next');
+
+    let index = 0;
+
+    function update() {
+        track.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    next.addEventListener('click', () => {
+        index = (index + 1) % slides.length;
+        update();
+    });
+
+    prev.addEventListener('click', () => {
+        index = (index - 1 + slides.length) % slides.length;
+        update();
+    });
+});
