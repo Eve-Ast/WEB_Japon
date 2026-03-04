@@ -15,21 +15,12 @@ html { scroll-behavior: smooth; }
 
 body {
     font-family: 'DM Sans', sans-serif;
-    /* font-family: 'Arial Black', sans-serif; */
     background: var(--paper);
     color: var(--ink);
     overflow-x: hidden;
 }
 
-/* ===== HEADER (compatibilité avec style.css existant) ===== */
-/* #main-header {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 2.5rem; height: 64px;
-    background: rgba(14,12,10,0.92);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(201,168,76,0.2);
-} */
+/* ===== HEADER  ===== */
 header {
     position: fixed; 
     top: 0;
@@ -46,12 +37,7 @@ header {
     z-index: 1000; 
 }
 
-/* .logo {
-    font-family: 'Shippori Mincho', serif;
-    font-size: 1.4rem; font-weight: 800;
-    color: var(--gold); text-decoration: none;
-    letter-spacing: 2px;
-} */
+/* Logo "SB" */
 
 .logo {
     position: absolute; /* Force le logo à rester à gauche */
@@ -69,7 +55,6 @@ header {
 }
 
 /* Menu de navigation */ 
-/* .nav-links { list-style: none; display: flex; gap: 2rem; } */
 .nav-links {
     list-style: none;
     display: flex;
@@ -77,13 +62,6 @@ header {
     margin: 0;
     padding: 0;
 }
-
-/* .nav-links > li > a {
-    color: #e8e4dc; text-decoration: none;
-    font-size: 0.85rem; font-weight: 400;
-    letter-spacing: 0.05em; text-transform: uppercase;
-    transition: color 0.2s;
-} */
 
 .nav-links > li > a {
     font-family: 'Arial Black', sans-serif;
@@ -99,20 +77,14 @@ header {
 /* Menu déroulant */ 
 .dropdown { position: relative; }
 
-/* .dropdown-content {
-    display: none; position: absolute; top: 100%; left: 0;
-    background: rgba(14,12,10,0.97); border: 1px solid rgba(201,168,76,0.2);
-    list-style: none; min-width: 160px; z-index: 999;
-} */
-
 .dropdown-content {
     display: none; /* Caché par défaut */
     position: absolute;
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    background-color: white;
-    min-width: 180px;
+    background-color: var(--ink);
+    min-width: 180px; /*taille de la box*/
     box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     list-style: none;
     padding: 10px 0;
@@ -122,14 +94,9 @@ header {
 
 .dropdown:hover .dropdown-content { display: block; }
 
-/* .dropdown-content li a {
-    display: block; padding: 0.6rem 1.2rem;
-    color: #ccc; text-decoration: none; font-size: 0.82rem;
-    transition: background 0.2s, color 0.2s;
-} */
 .dropdown-content li a {
     text-decoration: none;
-    color: #333;
+    color: var(--paper);
     padding: 10px 20px;
     display: block;
     text-align: center; 
@@ -297,36 +264,27 @@ header {
 .carousel-btn:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); }
 
 /* ===== OÙ MANGER ===== */
+/* ===== OÙ MANGER ===== */
 .manger-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    max-width: 1100px; margin: 0 auto;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
 }
-.manger-card { overflow: hidden; }
-.manger-img {
-    height: 260px;
-    background-size: cover; background-position: center;
-    transition: transform 0.4s ease;
-}
-.manger-card:hover .manger-img { transform: scale(1.03); }
-.manger-info { padding: 1.2rem 0.5rem; }
-.manger-info h3 {
-    font-family: 'Shippori Mincho', serif;
-    font-size: 1.2rem; color: var(--paper);
-    margin-bottom: 0.4rem;
-}
-.manger-info p { color: rgba(240,235,225,0.6); font-size: 0.9rem; line-height: 1.6; }
 
-
-/* ===== MANGER CAROUSEL ===== */
+/* CAROUSEL */
 .manger-carousel {
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .manger-track {
     display: flex;
+    width: 100%;
     transition: transform 0.5s ease;
 }
 
@@ -334,14 +292,19 @@ header {
     min-width: 100%;
     position: relative;
     text-decoration: none;
+    display: flex;
+    justify-content: center;
 }
 
+/* IMAGE */
 .manger-img {
+    width: 100%;
     height: 260px;
-    background-size: cover;
-    background-position: center;
+    object-fit: contain;   /* 👈 IMAGE TOUJOURS ENTIÈRE */
+    background-color: var(--ink);
 }
 
+/* OVERLAY */
 .manger-overlay {
     position: absolute;
     inset: 0;
@@ -368,9 +331,10 @@ header {
     opacity: 1;
 }
 
+/* BOUTONS */
 .manger-btn {
     position: absolute;
-    top: 50%;
+    top: 45%;
     transform: translateY(-50%);
     background: var(--ink);
     color: white;
@@ -384,20 +348,22 @@ header {
 .manger-btn.prev { left: 5px; }
 .manger-btn.next { right: 5px; }
 
-.manger-block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Titre sous le carrousel */
+/* TITRE */
 .manger-title {
     margin-top: 1rem;
     font-family: 'Shippori Mincho', serif;
-    font-size: 1.5rem; 
+    font-size: 1.4rem;
     font-weight: 600;
     color: var(--paper);
+    text-align: center;
     letter-spacing: 0.05em;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .manger-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 
@@ -462,7 +428,7 @@ footer {
     border-top: 1px solid rgba(201,168,76,0.15);
     padding: 2rem 5vw; text-align: center;
 }
-.footer-link { color: var(--ink); text-decoration: none; font-size: 0.85rem; }
+.footer-link { color: var(--ink); text-decoration: none; font-size: 1rem; }
 .footer-link:hover { color: var(--red); }
 
 /* ===== RESPONSIVE ===== */
