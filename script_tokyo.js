@@ -72,7 +72,5 @@ function positionTooltip(e) {
 // ===== HEADER : fond plus opaque au scroll =====
 const header = document.getElementById('main-header');
 window.addEventListener('scroll', () => {
-    header.style.background = window.scrollY > 60
-        ? 'rgba(14,12,10,0.98)'
-        : 'rgba(14,12,10,0.92)';
+    header.style.background = '#f5f2ec';
 });
