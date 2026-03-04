@@ -404,7 +404,8 @@ header {
     background: rgba(14,12,10,0.97);
     border: 1px solid rgba(201,168,76,0.3);
     color: var(--paper);
-    width: 260px; z-index: 9999;
+    width: 370px; z-index: 9999;
+    min-height: 180px;
     pointer-events: none;
     box-shadow: 0 8px 32px rgba(0,0,0,0.5);
 }
