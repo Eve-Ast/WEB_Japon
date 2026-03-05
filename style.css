@@ -89,7 +89,7 @@ header {
     left: 50%;
     transform: translateX(-50%);
     background-color: var(--ink);
-    min-width: 130px; /*taille de la boxe*/
+    min-width: 180px; /*taille de la boxe*/
     box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     list-style: none;
     padding: 10px 0;
