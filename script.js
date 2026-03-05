@@ -43,7 +43,7 @@ cities.forEach(city => {
             // Ligne à décommenter (enlever les //) quand vous aurez créé tokyo.html, etc.
             window.location.href = `${cityId}.html`; 
             
-            //alert(`Déconvrons la ville de ${cityId} ensemble`);
+           
         }
     });
 });

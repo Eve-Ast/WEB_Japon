@@ -17,7 +17,7 @@
     display: flex;
     min-height: 80vh;
     gap: 20px;
-    background: white;
+    background: var(--paper);
     border: 2px solid var(--ink);
 }
 
@@ -93,6 +93,11 @@ select {
     color: var(--paper);
 }
 
+.radio-card:hover{
+    background-color: var(--red);
+    color: var(--paper);
+}
+
 .form-buttons {
     display: flex;
     gap: 20px;
@@ -148,7 +153,8 @@ select {
     top: 10%;
     left: 10%;
     z-index: 2;
-    color: white;
+    color: var(--paper);
+    text-align: center;
     font-family: 'Shippori Mincho', serif;
     font-size: 3rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
@@ -162,7 +168,7 @@ select {
 }
 
 .name-highlight {
-    border-bottom: 3px dotted var(--red);
+    border-bottom: 3px  var(--red);
 }
 
 .city-highlight {
@@ -214,12 +220,12 @@ select {
     font-size: 14px;
     color: #333;
     background-color: rgba(255, 255, 255, 0.95);
-    padding: 3px 10px;
-    border-radius: 4px;
+    padding: 10px 18px; 
+    border-radius: 6px;
     transition: all 0.3s ease;
     font-family: 'Shippori Mincho', serif;
     white-space: nowrap;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
 }
 
 /* Effets Hover sur la ville */
@@ -241,7 +247,7 @@ select {
 .carousel-result {
     position: absolute;
     bottom: 20px;
-    right: -80px;
+    right: -30px;
     width: 160px;
     height: 230px;
     border: 4px solid white;
@@ -269,6 +275,46 @@ select {
 
 #btn-restart {
     align-self: center;
+}
+
+/* ================================================= */
+/* POSITIONNEMENT DU TEXTE AUTOUR DU POINT (SYNC ACCUEIL) */
+/* ================================================= */
+
+.city.label-topleft .city-name {
+    position: absolute;
+    bottom: 5px; 
+    right: 10px; 
+    margin-top: 0;
+}
+
+.city.label-topright .city-name {
+    position: absolute;
+    bottom: 5px; 
+    left: 15px; 
+    margin-top: 0;
+}
+
+.city.label-left .city-name {
+    position: absolute;
+    right: 10px; 
+    top: -2px; 
+    margin-top: 0;
+}
+
+.city.label-right .city-name {
+    position: absolute;
+    left: 15px; 
+    top: -5px; 
+    margin-top: 0;
+}
+
+/* On s'assure que le conteneur de la carte ne crée pas de décalage */
+.map-result-container {
+    display: inline-block; /* Force le cadre à épouser l'image exactement */
+    position: relative;
+    line-height: 0;
+    margin: 20px auto;
 }
 
 /* ================================================= */
@@ -316,3 +362,4 @@ select {
         font-size: 2rem;
     }
 }
+
