@@ -279,7 +279,8 @@ header {
 footer {
     background: #f5f2ec;
     border-top: 1px solid rgba(201,168,76,0.15);
-    padding: 2rem 5vw; text-align: center;
+    padding: 1rem 5vw; text-align: center;
+    color: var(--ink);
 }
 .footer-link { color: var(--ink); text-decoration: none; font-size: 1rem; }
 .footer-link:hover { color: var(--red); }
