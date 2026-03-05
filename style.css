@@ -3,10 +3,6 @@
     --ink: #0e0c0a;
     --paper: #f5f2ec;
     --red: #d62020;
-    --gold: #c9a84c;
-    --muted: #7a7168;
-    --card-h: 420px;
-    --transition: 0.45s cubic-bezier(0.4,0,0.2,1);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -54,7 +50,6 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Arial Black', sans-serif;
 }
 
 /* Menus de navigation */
@@ -67,7 +62,6 @@ header {
 }
 
 .nav-links > li > a {
-    font-family: 'Arial Black', sans-serif;
     text-decoration: none;
     color: #333;
     font-size: 18px;
@@ -121,7 +115,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center; /* CORRECTION CRUCIALE : Empêche la carte de s'étirer verticalement (règle le bug des points) */
-    padding: 40px;
+    padding: 30px;
     max-width: 1200px;
     margin: 0 auto;
     gap: 40px;
@@ -135,8 +129,7 @@ header {
 .left-text h1 {
     font-size: 3em;
     font-weight: normal;
-    margin-bottom: 20px;
-}
+    margin-bottom: 20px;}
 
 .description{
     color : var(--ink);
@@ -151,15 +144,9 @@ header {
     text-align: center;
 }
 
-.intro-text {
-    font-family: 'Shippori Mincho', serif;
-    font-size: 1.2rem;
-    color: white; /* selon ton design */
-}
-
 /* Carte à droite */
 .map-container {
-    width: 55%; 
+    /*width: 35%; */
     position: relative;
     display: block; 
 }
@@ -290,7 +277,6 @@ header {
 
 /* ===== FOOTER ===== */
 footer {
-    font-family: 'Arial Black', sans-serif;
     background: #f5f2ec;
     border-top: 1px solid rgba(201,168,76,0.15);
     padding: 2rem 5vw; text-align: center;
