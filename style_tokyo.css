@@ -261,7 +261,7 @@ header {
     font-size: 1.1rem; flex-shrink: 0;
     transition: background 0.2s, border-color 0.2s;
 }
-.carousel-btn:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+.carousel-btn:hover { background: var(--red); color: var(--paper); border-color: var(--red); }
 
 /* ===== OÙ MANGER ===== */
 /* ===== OÙ MANGER ===== */
@@ -390,7 +390,7 @@ header {
     cursor: pointer; position: relative; z-index: 2;
     transition: transform 0.25s ease, background 0.25s ease;
 }
-.t-dot:hover { transform: scale(1.6); background: var(--gold); }
+.t-dot:hover { transform: scale(1.6); background: var(--red); }
 .t-label {
     font-size: 0.72rem; letter-spacing: 0.06em;
     color: var(--muted); text-transform: uppercase;
