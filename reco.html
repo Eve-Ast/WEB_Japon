@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommandation Personnalisée - Japon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reco.css">
+</head>
+<body>
+
+    <header id="main-header">
+        <a href="pagedegardebis.html" class="logo">SB</a>
+        <nav>
+            <ul class="nav-links">
+                <li class="dropdown">
+                    <a>Villes</a>
+                    <ul class="dropdown-content">
+                        <li><a href="tokyo.html">Tokyo</a></li>
+                        <li><a href="kyoto.html">Kyoto</a></li>
+                        <li><a href="kobe.html">Kobe</a></li>
+                        <li><a href="osaka.html">Osaka</a></li>
+                        <li><a href="nara.html">Nara</a></li>
+                        <li><a href="uji.html">Uji</a></li>
+                        <li><a href="takahama.html">Takahama</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a>Reco/Quizz</a>
+                    <ul class="dropdown-content">
+                        <li><a href="reco.html">Recommandations</a></li>
+                        <li><a href="quizz.html">Faire le quizz</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a>Auteurs</a>
+                    <ul class="dropdown-content">
+                        <li><a href="Eve-Angeline.html#equipe">Eve-Angeline</a></li>
+                        <li><a href="Imane.html#equipe">Imane</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="reco-container">
+        <!-- SECTION FORMULAIRE -->
+        <section id="form-view" class="split-view">
+            <div class="form-side">
+                <h2 class="handwritten-title">Répondez à ces questions pour avoir une recommandation personnalisée !</h2>
+                
+                <form id="reco-form">
+                    <div class="form-group">
+                        <label>Votre Nom :</label>
+                        <input type="text" id="user-name" name="name" placeholder="Kate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Votre Age :</label>
+                        <select name="age" required>
+                            <option value="15">≤ 15 ans</option>
+                            <option value="25">15 < x ≤ 25</option>
+                            <option value="35">25 < x ≤ 35</option>
+                            <option value="50">35 < x ≤ 50</option>
+                            <option value="51">+ 50 ans</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Durée du voyage :</label>
+                        <select name="duration" required>
+                            <option value="1w">≤ 1 semaine</option>
+                            <option value="2w">1 < x ≤ 2 semaines</option>
+                            <option value="1m">1 mois</option>
+                            <option value="plus">+ d'1 mois</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Votre Préférence :</label>
+                        <div class="radio-grid">
+                            <label class="radio-card"><input type="radio" name="pref" value="Foret" required> <span>Forêt</span></label>
+                            <label class="radio-card"><input type="radio" name="pref" value="Mer"> <span>Mer</span></label>
+                            <label class="radio-card"><input type="radio" name="pref" value="Ville"> <span>Ville</span></label>
+                            <label class="radio-card"><input type="radio" name="pref" value="Montagne"> <span>Montagne</span></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Quand Partez-vous ? :</label>
+                        <div class="radio-grid">
+                            <label class="radio-card"><input type="radio" name="season" value="Automne" required> <span>Automne</span></label>
+                            <label class="radio-card"><input type="radio" name="season" value="Hiver"> <span>Hiver</span></label>
+                            <label class="radio-card"><input type="radio" name="season" value="Printemps"> <span>Printemps</span></label>
+                            <label class="radio-card"><input type="radio" name="season" value="Ete"> <span>Été</span></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Avec qui voyagez-vous ? :</label>
+                        <div class="radio-grid">
+                            <label class="radio-card"><input type="radio" name="who" value="Seul" required> <span>Seul</span></label>
+                            <label class="radio-card"><input type="radio" name="who" value="Famille"> <span>En Famille</span></label>
+                            <label class="radio-card"><input type="radio" name="who" value="Amis"> <span>Entre Amis</span></label>
+                        </div>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="reset" class="btn-secondary">Réinitialiser</button>
+                        <button type="submit" class="btn-primary">Envoyer</button>
+                    </div>
+                </form>
+            </div>
+            <div class="image-side">
+                <img src="./img/JAL.png" alt="Avion JAL" class="side-img">
+            </div>
+        </section>
+
+        <!-- SECTION RÉSULTAT (Cachée par défaut) -->
+        <section id="result-view" class="split-view hidden">
+            <div class="result-side">
+                <div class="result-text">
+                    <span id="display-name" class="name-highlight">Ines</span>, que <br>
+                    pensez-vous <br>
+                    de découvrir <br>
+                    <span id="recommended-city" class="city-highlight">Tokyo</span> ?
+                </div>
+                <div class="map-result-container">
+                    <img src="./img/cartejapon2.png" alt="Carte du Japon" class="mini-map">
+                    <div id="city-pointer" class="city-dot"></div>
+                </div>
+            </div>
+            <div class="image-side">
+                <h2 class="bon-voyage">Bon voyage !</h2>
+                <img src="./img/JAL.png" alt="Avion JAL" class="side-img">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <a href="Eve-Angeline.html#equipe" class="footer-link">Auteurs</a>
+        </div>
+    </footer>
+
+    <script src="reco.js"></script>
+</body>
+</html>
