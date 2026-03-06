@@ -130,7 +130,7 @@ function startAutoCarousel(cityName, imagesList) {
     // Injection des images dans le DOM
     imagesList.forEach((imgName, index) => {
         const img = document.createElement('img');
-        img.src = `./img/${folder}/${imgName}`;
+        img.src = `../img/${folder}/${imgName}`;
         img.alt = `${cityName} photo ${index + 1}`;
         if (index === 0) img.classList.add('active');
         container.appendChild(img);
@@ -146,6 +146,6 @@ function startAutoCarousel(cityName, imagesList) {
             allImages[currentIndex].classList.remove('active');
             currentIndex = (currentIndex + 1) % allImages.length;
             allImages[currentIndex].classList.add('active');
-        }, 3000); // Défilement toutes les 3 secondes
+        }, 2000); // Défilement toutes les 3 secondes
     }
 }
