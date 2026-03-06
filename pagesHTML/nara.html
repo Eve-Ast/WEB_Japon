@@ -3,37 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kobe — Découvrez le Japon</title>
-    <link rel="stylesheet" href="style_ville.css">
+    <title>Nara — Découvrez le Japon</title>
+    <link rel="stylesheet" href="../styles/style_ville.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header id="main-header">
-        <a href="pagedegardebis.html" class="logo">SB</a>
+        <a href="./pagedegardebis.html" class="logo">SB</a>
         <nav>
             <ul class="nav-links">
                 <li class="dropdown">
                     <a >Villes</a>
                     <ul class="dropdown-content">
-                        <li><a href="tokyo.html">Tokyo</a></li>
-                        <li><a href="kyoto.html">Kyoto</a></li>
-                        <li><a href="kobe.html">Kobe</a></li>
-                        <li><a href="osaka.html">Osaka</a></li>
-                        <li><a href="nara.html">Nara</a></li>
-                        <li><a href="uji.html">Uji</a></li>
-                        <li><a href="takahama.html">Takahama</a></li>
+                        <li><a href="./tokyo.html">Tokyo</a></li>
+                        <li><a href="./kyoto.html">Kyoto</a></li>
+                        <li><a href="./kobe.html">Kobe</a></li>
+                        <li><a href="./osaka.html">Osaka</a></li>
+                        <li><a href="./nara.html">Nara</a></li>
+                        <li><a href="./uji.html">Uji</a></li>
+                        <li><a href="./takahama.html">Takahama</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="reco.html">Recommandation</a>
+                    <a href="./reco.html">Recommandation</a>
                 </li>
                 <li class="dropdown">
                     <a >Auteurs</a>
                     <ul class="dropdown-content">
-                        <li><a href="Eve-Angeline.html#equipe">Eve-Angeline</a></li>
-                        <li><a href="Imane.html#equipe">Imane</a></li>
+                        <li><a href="./Eve-Angeline.html">Eve-Angeline</a></li>
+                        <li><a href="./Imane.html">Imane</a></li>
                     </ul>
                 </li>
             </ul>
@@ -41,11 +41,11 @@
     </header>
 
     <!-- HERO -->
-    <section class="hero" style="background-image: url('img/kobe/ville.jpeg');">
+    <section class="hero" style="background-image: url('../img/nara/biches.jpeg');">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="hero-title">Kobe</h1>
-            <p class="hero-text">Ouverte sur la mer et entourée de montagnes, Kobe est une ville élégante au caractère cosmopolite. Son port historique, ses quartiers raffinés et sa gastronomie renommée témoignent d’un subtil mélange entre influences internationales et traditions japonaises.</p>
+            <h1 class="hero-title">Nara</h1>
+            <p class="hero-text">Première capitale permanente du Japon, Nara est une ville où l’histoire et la nature se rencontrent harmonieusement. Entre temples monumentaux, parcs peuplés de daims et patrimoine millénaire, elle invite à un voyage paisible au cœur des origines culturelles du pays.</p>
         </div>
         <div class="scroll-hint">↓</div>
     </section>
@@ -54,15 +54,23 @@
     <section class="sommaire" id="sommaire">
         <div class="sommaire-grid">
             <a href="#que-faire" class="sommaire-card" data-index="0">
-                <div class="sommaire-img" style="background-image: url('img/kobe/cascade.jpeg');"></div>
+                <div class="sommaire-img" style="background-image: url('../img/nara/paguogue.jpeg');"></div>
                 <div class="sommaire-label">
                     <span class="sommaire-num">01</span>
                     <span class="sommaire-name">Que faire ?</span>
                 </div>
                 <div class="sommaire-overlay"></div>
             </a>
+            <a href="#ou-manger" class="sommaire-card" data-index="1">
+                <div class="sommaire-img" style="background-image: url(../img/nara/maison.jpeg);"></div>
+                <div class="sommaire-label">
+                    <span class="sommaire-num">02</span>
+                    <span class="sommaire-name">Où manger ?</span>
+                </div>
+                <div class="sommaire-overlay"></div>
+            </a>
             <a href="#evenements" class="sommaire-card" data-index="2">
-                <div class="sommaire-img" style="background-image: url('img/tokyo/fujisan.jpeg');"></div>
+                <div class="sommaire-img" style="background-image: url('../img/nara/temple.jpeg');"></div>
                 <div class="sommaire-label">
                     <span class="sommaire-num">03</span>
                     <span class="sommaire-name">Événements</span>
@@ -77,27 +85,31 @@
         <div class="section-header">
             <span class="section-tag">01</span>
             <h2 class="section-title">Que faire ?</h2>
-            <p class="section-desc">Port élégant, collines verdoyantes et quartiers cosmopolites… Kobe offre un mélange unique de culture, de nature et d’ouverture sur le monde.</p>
+            <p class="section-desc">Temples millénaires, parcs paisibles et daims en liberté… Nara invite à découvrir un Japon empreint de sérénité et d’histoire.</p>
         </div>
         <div class="carousel-wrapper">
             <button class="carousel-btn prev" id="prev-btn">&#8592;</button>
             <div class="carousel-track-container">
                 <div class="carousel-track" id="carousel-track">
-                    <a href="" target="_blank" class="carousel-item">
-                        <div class="ci-img" style="background-image: url('img/kobe/mosquée.jpeg');"></div>
-                        <div class="ci-overlay"><span class="ci-name">Mosquée</span></div>
+                    <a href="https://www.visitnara.jp/destinations/area/nara-park/" target="_blank" class="carousel-item">
+                        <div class="ci-img" style="background-image: url('../img/nara/visiter/DeerPark.jpeg');"></div>
+                        <div class="ci-overlay"><span class="ci-name">Parc à Biches</span></div>
                     </a>
-                    <a href="" target="_blank" class="carousel-item">
-                        <div class="ci-img" style="background-image: url('img/kobe/plaque.jpeg');"></div>
-                        <div class="ci-overlay"><span class="ci-name">Plaque</span></div>
+                    <a href="https://www.kanpai.fr/nara/kofuku-ji" target="_blank" class="carousel-item">
+                        <div class="ci-img" style="background-image: url('../img/nara/visiter/kofuku-jiTemple.jpeg');"></div>
+                        <div class="ci-overlay"><span class="ci-name">Kofuku-ji Temple</span></div>
                     </a>
-                    <a href="" target="_blank" class="carousel-item">
-                        <div class="ci-img" style="background-image: url('img/kobe/telepherique.jpeg');"></div>
-                        <div class="ci-overlay"><span class="ci-name">Téléphérique</span></div>
+                    <a href="https://www.visitnara.jp/venues/S01099/" target="_blank" class="carousel-item">
+                        <div class="ci-img" style="background-image: url('../img/nara/visiter/NaramachiKoshi-no-ie.jpeg');"></div>
+                        <div class="ci-overlay"><span class="ci-name">Naramachi Koshi-no-ie</span></div>
                     </a>
-                    <a href="" target="_blank" class="carousel-item">
-                        <div class="ci-img" style="background-image: url('img/kobe/cascade.jpeg');"></div>
-                        <div class="ci-overlay"><span class="ci-name">Cascade</span></div>
+                    <a href="https://www.visitnara.jp/destinations/area/nara-park/" target="_blank" class="carousel-item">
+                        <div class="ci-img" style="background-image: url('../img/nara/visiter/Narapark.jpeg');"></div>
+                        <div class="ci-overlay"><span class="ci-name">Nara Park</span></div>
+                    </a>
+                    <a href="https://www.naracity-guide.com/en/spots/101" target="_blank" class="carousel-item">
+                        <div class="ci-img" style="background-image: url('../img/nara/visiter/ShigaNaoya\'sOldResidence.jpeg');"></div>
+                        <div class="ci-overlay"><span class="ci-name">Shiga Naoya's Old Residence</span></div>
                     </a>
 
                 </div>
@@ -106,12 +118,61 @@
         </div>
     </section>
 
+    <!-- OÙ MANGER -->
+    <section class="section-block section-alt" id="ou-manger">
+        <div class="section-header">
+            <span class="section-tag">02</span>
+            <h2 class="section-title">Où manger ?</h2>
+            <p class="section-desc">
+                Spécialités traditionnelles, douceurs locales et cuisine raffinée… À Nara, la gastronomie accompagne parfaitement la sérénité de l’ancienne capitale impériale.
+            </p>
+        </div>
+
+        <div class="manger-grid">
+
+            <!-- CAROUSEL 2 -->
+            <div class="manger-carousel">
+                <button class="manger-btn prev">‹</button>
+
+                <div class="manger-track">
+                    <a href="https://www.google.fr/maps/place/sahha+halal+restaurant/@34.6893875,135.8262005,17z/data=!3m1!4b1!4m6!3m5!1s0x60013baa0a7cea33:0x9eb65778425a8043!8m2!3d34.6893875!4d135.8262005!16s%2Fg%2F11ny1ws2zf?entry=ttu&g_ep=EgoyMDI2MDMwMi4wIKXMDSoASAFQAw%3D%3D" 
+                    target="_blank" class="manger-slide">
+                        <img src="../img/nara/restaurants/sahhahalalrestaurant.jpeg" 
+                            class="manger-img" >
+                        <div class="manger-overlay"><span>Sahha Halal Restaurant</span></div>
+                    </a>
+                </div>
+
+                <button class="manger-btn next">›</button>
+                <h3 class="manger-title">Classique</h3>
+            </div>
+
+            <!-- CAROUSEL 3 -->
+            <div class="manger-carousel">
+                <button class="manger-btn prev">‹</button>
+
+                <div class="manger-track">
+                    <a href="https://www.google.fr/maps/place/Kuki+Cake./@34.677662,135.8403203,17z/data=!3m2!4b1!5s0x600139ece7a930d5:0xc2f67e1c51eabfa3!4m6!3m5!1s0x600139ece7b1ccf3:0xc3b85c18b7f19599!8m2!3d34.677662!4d135.8403203!16s%2Fg%2F1tgw9tnc?entry=ttu&g_ep=EgoyMDI2MDMwMi4wIKXMDSoASAFQAw%3D%3D"  
+                    target="_blank" class="manger-slide">
+                        <img src="../img/nara/cafés/KukiCake.jpeg" 
+                            class="manger-img">
+                        <div class="manger-overlay"><span>Kuki Cake.</span></div>
+                    </a>  
+                </div>
+
+                <button class="manger-btn next">›</button>
+                <h3 class="manger-title">Cafés</h3>
+            </div>
+
+        </div>
+    </section>
+
     <!-- ÉVÉNEMENTS -->
     <section class="section-block" id="evenements">
         <div class="section-header">
             <span class="section-tag">03</span>
             <h2 class="section-title">Événements</h2>
-            <p class="section-desc">Port cosmopolite, Kobe anime son calendrier d’événements culturels et de festivals mêlant traditions japonaises et influences internationales.</p>
+            <p class="section-desc">Entre rituels anciens et fêtes traditionnelles, Nara perpétue chaque mois des célébrations empreintes d’histoire et de spiritualité.</p>
         </div>
         <div class="timeline-wrapper">
             <div class="timeline-scroll">
@@ -144,10 +205,10 @@
     <footer>
         <div class="footer-content">
             <a class="footer-text">Auteurs</a> <br>
-            <a  href= "Eve-Angeline.html" class="footer-link">Eve-Angeline </a> <a>&</a> <a  href= "Imane.html" class="footer-link">Imane </a>
+            <a  href= "./Eve-Angeline.html" class="footer-link">Eve-Angeline </a> <a>&</a> <a  href= "./Imane.html" class="footer-link">Imane </a>
         </div>
     </footer>
 
-    <script src="script_ville.js"></script>
+    <script src="../scripts/script_ville.js"></script>
 </body>
 </html>
