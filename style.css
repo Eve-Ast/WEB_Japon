@@ -133,6 +133,9 @@ header {
 
 .description{
     color : var(--ink);
+    text-align: justify;
+    font-family: 'Shippori Mincho', serif;
+    font-weight: bolder;
 }
 
 .instruction {
@@ -142,6 +145,11 @@ header {
     margin-top: 80px;
     font-size: 0.8em;
     text-align: center;
+}
+
+.instruction:hover{
+    color: var(--red);
+    font-weight: bolder;
 }
 
 /* Carte à droite */
