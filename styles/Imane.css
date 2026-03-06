@@ -1,66 +1,74 @@
-/* ===== STYLE SPÉCIFIQUE AU CV ===== */
+/* ===== CONFIGURATION DE LA PAGE CV ===== */
+
+/* On force un padding en haut pour compenser le header fixe de style.css */
+body {
+    padding-top: 0 !important; /* On gère le padding dans .cv-page */
+}
 
 .cv-page {
-    padding: 40px 20px;
+    background-color: #f5f2ec; /* --paper */
+    padding: 100px 20px 50px 20px; /* 100px en haut pour laisser la nav visible */
     display: flex;
     justify-content: center;
+    min-height: 100vh;
 }
 
 .cv-container {
-    background: white; /* Fond blanc pour faire ressortir le CV comme une feuille */
+    background-color: white;
     width: 100%;
-    max-width: 900px;
+    max-width: 850px;
     padding: 50px;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.05);
-    color: var(--ink);
-    font-family: 'DM Sans', sans-serif; /* Police plus lisible pour le contenu */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    font-family: 'DM Sans', sans-serif;
+    color: #0e0c0a; /* --ink */
 }
 
-/* En-tête CV */
-.cv-header {
+/* Introduction (Nom et Contact) */
+.cv-intro {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
-.cv-header h1 {
+.cv-intro h1 {
     font-family: 'Shippori Mincho', serif;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     margin-bottom: 5px;
-    color: var(--ink);
-    text-transform: none;
 }
 
-.red-text { color: var(--red); }
+.red-text {
+    color: #d62020; /* --red */
+}
 
 .cv-title {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     color: #555;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .cv-contact {
-    font-size: 0.9rem;
-    color: var(--ink);
+    font-size: 0.95rem;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
 }
 
 /* Sections */
 .cv-section {
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
 .section-title {
     font-family: 'Shippori Mincho', serif;
-    color: var(--red);
+    color: #d62020;
     text-transform: uppercase;
-    font-size: 1.1rem;
-    border-bottom: 1.5px solid var(--red);
-    margin-bottom: 12px;
-    padding-bottom: 3px;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #d62020;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
 }
 
-/* Entrées (Formation & Expérience) */
+/* Entrées (Banking Style) */
 .entry {
-    margin-bottom: 15px;
+    margin-bottom: 18px;
 }
 
 .entry-header, .entry-sub {
@@ -69,62 +77,51 @@
     align-items: baseline;
 }
 
-.entry-main { font-size: 1.05rem; }
 .entry-location, .entry-date {
     font-weight: bold;
-    font-size: 0.95rem;
 }
 
 .entry-sub {
-    margin-top: 2px;
     font-style: italic;
+    margin-top: 2px;
 }
 
 .entry-detail {
-    margin-top: 4px;
+    margin-top: 5px;
     font-size: 0.95rem;
-    color: #333;
 }
 
+/* Projets, Compétences et Langues */
+.project-item, .skill {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.lang-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.italic-comment {
+    font-style: italic;
+    color: #666;
+}
+
+/* Listes */
 ul {
     margin-top: 5px;
     padding-left: 20px;
 }
 
-li { margin-bottom: 5px; font-size: 0.95rem; }
-
-/* Projets & Compétences */
-.project-entry {
-    margin-bottom: 10px;
+li {
+    margin-bottom: 4px;
 }
 
-.skill-item {
-    margin-bottom: 8px;
-    font-size: 0.95rem;
-}
-
-/* Langues */
-.lang-entry {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 5px;
-    font-size: 0.95rem;
-}
-
-.lang-comment {
-    font-style: italic;
-    color: #666;
-    font-size: 0.85rem;
-}
-
-/* Responsive CV */
+/* RESPONSIVE */
 @media (max-width: 768px) {
-    .cv-container { padding: 20px; }
-    .entry-header, .entry-sub, .lang-entry {
-        flex-direction: column;
-    }
-    .entry-location, .entry-date {
-        align-self: flex-start;
-        margin-top: 2px;
-    }
+    .cv-container { padding: 25px; }
+    .entry-header, .entry-sub, .lang-row { flex-direction: column; }
+    .cv-intro h1 { font-size: 2rem; }
 }
