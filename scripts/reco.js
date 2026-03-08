@@ -1,7 +1,7 @@
 /* ================================================= */
 /* 1. CONFIGURATION DES VILLES (COORDONNÉES ET IMAGES) */
 /* ================================================= */
-// On centralise tout ici pour que ce soit identique à la page de garde
+// Contient les positions GPS (CSS), les classes d'affichage et les images.
 const cityConfigs = {
     "Tokyo": { 
         top: "69%", left: "63%", 
@@ -50,23 +50,39 @@ let currentRecommendedCity = "";
 document.getElementById('reco-form').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    // Récupération des données
+    // Récupération de TOUTES les données
     const name = document.getElementById('user-name').value;
     const formData = new FormData(this);
     const pref = formData.get('pref');
     const season = formData.get('season');
+    const who = formData.get('who');
+    
 
     // --- LOGIQUE DE RECOMMANDATION ---
-    let city = "Tokyo"; // Ville par défaut
+       let city = "Tokyo"; // Valeur par défaut
 
-    if (pref === "Foret" || pref === "Montagne") {
+    // Condition 1 : Ville ou Montagne + Seul ou Amis -> Tokyo
+    if ((pref === "Ville" || pref === "Montagne") && (who === "Seul" || who === "Amis")) {
+        city = "Tokyo";
+    } 
+    // Condition 2 : Forêt -> Kyoto
+    else if (pref === "Foret") {
         city = "Kyoto";
-    } else if (pref === "Mer") {
-        city = "Takahama";
-    } else if (pref === "Ville" && season === "Ete") {
+    } 
+    // Condition 3 : Ville + Amis ou Famille -> Osaka
+    else if (pref === "Ville" && (who === "Amis" || who === "Famille")) {
         city = "Osaka";
+    } 
+    // Condition 4 : Mer + Été -> Takahama
+    else if (pref === "Mer" && season === "Ete") {
+        city = "Takahama";
+    }
+    // Sinon, par défaut c'est déjà Tokyo
+    else {
+        city = "Tokyo";
     }
 
+// Mise à jour de l'état global
     currentRecommendedCity = city;
     const config = cityConfigs[city];
 
@@ -79,7 +95,8 @@ document.getElementById('reco-form').addEventListener('submit', function(e) {
     // 2. Point et étiquette sur la carte
     const cityDiv = document.getElementById('dynamic-city-result');
     const label = document.getElementById('city-label');
-
+    
+  // Injection des données de la ville recommandée
     label.textContent = city;
     cityDiv.style.top = config.top;
     cityDiv.style.left = config.left;
@@ -146,6 +163,6 @@ function startAutoCarousel(cityName, imagesList) {
             allImages[currentIndex].classList.remove('active');
             currentIndex = (currentIndex + 1) % allImages.length;
             allImages[currentIndex].classList.add('active');
-        }, 2000); // Défilement toutes les 3 secondes
+        }, 2000); // Défilement toutes les 2 secondes
     }
 }

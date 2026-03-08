@@ -1,13 +1,20 @@
 <!DOCTYPE html>
+<!-- ================= META-DATA & IMPORTATION DOCS ================= -->
+<!-- Déclare la langue principale du contenu de la page web-->
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- rend le site responsive (adapté aux mobiles) --> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="author" content="Eve-Angeline, Imane">
     <title>Découvrez le Japon - Accueil</title>
 
     <!-- les polices -->
+    <!-- Prépare la connexion avec les serveurs de Google en avance pour gagner du temps au chargement-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!--  Télécharge les fichiers des polices choisies pour pouvoir les utiliser dans le CSS-->
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 
     <!-- le fichier CSS -->
@@ -21,12 +28,12 @@
         <a href="./pagedegardebis.html" class="logo">SB</a>
 
         <!-- Barre de navigation avec menus déroulants -->
-        <nav>
-            <ul class="nav-links">
-                <li class="dropdown">
-                    <a >Villes</a>
+        <nav> <!-- Définit un bloc contenant des liens de navigation -->
+            <ul class="nav-links"> <!--  liste non ordonnée-->
+                <li class="dropdown"> <!-- élément de la liste-->
+                    <a >Villes</a> 
                     <ul class="dropdown-content" >
-                        <li><a href="./tokyo.html">Tokyo</a></li>
+                        <li><a href="./tokyo.html">Tokyo</a></li> <!-- "a" : balise pour créer un lien hypertexte vers une autre page ou une ancre-->
                         <li><a href="./kyoto.html">Kyoto</a></li>
                         <li><a href="./kobe.html">Kobe</a></li>
                         <li><a href="./osaka.html">Osaka</a></li>
@@ -47,48 +54,53 @@
                 </li>
             </ul>
         </nav>
-
     </header>
 
-    <!-- ================= CONTENU PRINCIPAL ================= -->
-    <main class="content-wrapper">
+    <!-- ================= CONTENU DE LA PAGE ================= -->
+    <main class="content-wrapper"> <!-- "main" : exclut ce qui se répète sur tout le site (comme le header et le footer)-->
         
         <!-- Colonne de gauche : Texte -->
-        <section class="left-text">
+        <section class="left-text"> <!-- "section" : sert à diviser ta page en blocs de contenu logiques et thématiques -->
             <h1>Découvrez le Japon !</h1>
-            <p class="description">Le Japon est un archipel d'Asie de l'Est composé de quatre îles principales (Honshu, Hokkaido, Kyushu, Shikoku) et de milliers d'îlots. Connu comme le "pays du Soleil-Levant", il mêle traditions millénaires et modernité technologique, avec une population de près de 124 millions d'habitants concentrée sur les plaines côtières.</p>
+            <p class="description">Le Japon est un archipel d'Asie de l'Est composé de quatre îles principales (Honshu, Hokkaido, Kyushu, Shikoku) et de milliers d'îlots. Connu comme le "pays du Soleil-Levant", il mêle traditions millénaires et modernité technologique.</p>
             <p class="instruction">cliquez sur les villes ;)</p>
         </section>
 
         <!-- Colonne de droite : Carte -->
         <section class="right-map map-container">
-            <!-- Remplacez 'japon.gif' par le nom de votre image de carte -->
             <img src="../img/cartejapon2.png" alt="Carte du Japon" class="japan-map" >
 
             <!-- Ville 1 : Tokyo -->
+            <!-- Définition du conteneur parent "city"-->
            <div class="city carousel-right" id="Tokyo" style="top: 69%; left: 63%;">
+
+            <!-- Partie cachée-->
                 <div class="carousel-container">
                     <button class="carousel-btn prev">&#10094;</button>
                     <div class="carousel-images">
-                        <img src="../img/tokyo/tokyotower.jpeg" alt="Tokyo 1" class="active" >
-                        <img src="../img/tokyo/akihabara.jpeg" alt="Tokyo 2" >
-                        <img src="../img/tokyo/sensojitemple.jpeg" alt="Tokyo 3">
-                        <img src="../img/tokyo/shibuyacrossing.jpeg" alt="Tokyo 5" >
-                        <img src="../img/tokyo/tower.jpeg" alt="Tokyo 4">
-                        <img src="../img/tokyo/shinjuku.jpeg" alt="Tokyo 5" >
-                        <img src="../img/tokyo/meijijingu.jpeg" alt="Tokyo 6" >
-                        <img src="../img/tokyo/shibuya.jpeg" alt="Tokyo 7" >
-                        <img src="../img/tokyo/ueno.jpeg" alt="Tokyo 8" >
-                        <img src="../img/tokyo/fujisan.jpeg" alt="Tokyo 9" >
+                        <img src="../img/tokyo/tokyotower.jpeg" alt="Tokyo tower" class="active" >
+                        <img src="../img/tokyo/akihabara.jpeg" alt="Akihabara" >
+                        <img src="../img/tokyo/sensojitemple.jpeg" alt="Senso-ji Temple">
+                        <img src="../img/tokyo/shibuyacrossing.jpeg" alt="shibuya Crossing" >
+                        <img src="../img/tokyo/tower.jpeg" alt="Tokyo skytree">
+                        <img src="../img/tokyo/shinjuku.jpeg" alt="Shinjuku" >
+                        <img src="../img/tokyo/meijijingu.jpeg" alt="Meiji-jingu" >
+                        <img src="../img/tokyo/shibuya.jpeg" alt="Shibuya" >
+                        <img src="../img/tokyo/ueno.jpeg" alt="Ueno" >
+                        <img src="../img/tokyo/fujisan.jpeg" alt="Mont Fuji" >
                     </div>
                     <button class="carousel-btn next">&#10095;</button>
                 </div>
+
+                <!-- Partie visible -->
                 <div class="dot"></div>
                 <div class="city-name" >Tokyo</div>
             </div>
 
             <!-- Ville 2 : Kyoto -->
+            <!-- Définition du conteneur parent "city"-->
             <div class="city label-topleft" id="Kyoto" style="top: 68%; left: 42.5%;">
+                <!-- Partie cachée-->
                 <div class="carousel-container">
                     <button class="carousel-btn prev">&#10094;</button>
                     <div class="carousel-images">
@@ -104,12 +116,15 @@
                     </div>
                     <button class="carousel-btn next">&#10095;</button>
                 </div>
+                <!-- Partie visible -->
                 <div class="dot"></div>
                 <div class="city-name" >Kyoto</div>
             </div>
 
             <!-- Ville 3 : Osaka -->
+            <!-- Définition du conteneur parent "city"-->
             <div class="city carousel-bottom" id="Osaka" style="top: 75%; left: 41%;">
+                <!-- Partie cachée-->
                 <div class="carousel-container">
                     <button class="carousel-btn prev">&#10094;</button>
                     <div class="carousel-images">
@@ -124,12 +139,15 @@
                     </div>
                     <button class="carousel-btn next">&#10095;</button>
                 </div>
+                <!-- Partie visible -->
                 <div class="dot"></div>
                 <div class="city-name" >Osaka</div>
             </div>
             
             <!-- Ville 4 : Kobe -->
+            <!-- Définition du conteneur parent "city"-->
             <div class="city label-left carousel-left " id="Kobe" style="top: 70%; left: 40%;">
+                <!-- Partie cachée-->
                 <div class="carousel-container">
                     <button class="carousel-btn prev">&#10094;</button>
                     <div class="carousel-images">
@@ -141,12 +159,15 @@
                     </div>
                     <button class="carousel-btn next">&#10095;</button>
                 </div>
+                <!-- Partie visible -->
                 <div class="dot"></div>
                 <div class="city-name" >Kobe</div>
             </div>
 
             <!-- Ville 5 : Nara -->
+            <!-- Définition du conteneur parent "city"-->
             <div class="city label-right carousel-bottom" id="Nara" style="top: 73%; left: 43.5%;">
+                <!-- Partie cachée-->
                 <div class="carousel-container">
                     <button class="carousel-btn prev">&#10094;</button>
                     <div class="carousel-images">
@@ -159,12 +180,15 @@
                     </div>
                     <button class="carousel-btn next">&#10095;</button>
                 </div>
+                <!-- Partie visible -->
                 <div class="dot"></div>
                 <div class="city-name" >Nara</div>
             </div>
 
             <!-- Ville 6 : Uji -->
+            <!-- Définition du conteneur parent "city"-->
             <div class="city label-right carousel-right" id="Uji" style="top: 70%; left: 44%;">
+                <!-- Partie cachée-->
                 <div class="carousel-container">
                     <button class="carousel-btn prev">&#10094;</button>
                     <div class="carousel-images">
@@ -175,12 +199,15 @@
                     </div>
                     <button class="carousel-btn next">&#10095;</button>
                 </div>
+                <!-- Partie visible -->
                 <div class="dot"></div>
                 <div class="city-name" >Uji</div>
             </div>
 
             <!-- Ville 7 : Takahama -->
+            <!-- Définition du conteneur parent "city"-->
             <div class="city label-topright" id="Takahama" style="top: 65%; left: 43%;">
+                <!-- Partie cachée-->
                 <div class="carousel-container">
                     <button class="carousel-btn prev">&#10094;</button>
                     <div class="carousel-images">
@@ -195,11 +222,11 @@
                     </div>
                     <button class="carousel-btn next">&#10095;</button>
                 </div>
+                <!-- Partie visible -->
                 <div class="dot"></div>
                 <div class="city-name" >Takahama</div>
             </div>
         </section>
-
     </main>
 
     <!-- ================= PIED DE PAGE ================= -->
@@ -210,7 +237,7 @@
         </div>
     </footer>
 
-    <!-- On relie bien le fichier JS ici -->
+    <!-- fichier Javascript -->
     <script src="../scripts/script.js"></script>
 </body>
 </html>
