@@ -147,15 +147,19 @@ header {
 /* ===== SOMMAIRE ===== */
 .sommaire { padding: 5rem 5vw; }
 .sommaire-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1.5rem;
     max-width: 1100px; margin: 0 auto;
 }
 .sommaire-card {
-    position: relative; height: var(--card-h);
-    overflow: hidden; text-decoration: none;
+    position: relative;
+    height: var(--card-h);
+    overflow: hidden; 
+    text-decoration: none;
     cursor: pointer;
+    flex: 0 1 calc(33.333% - 1rem);
 }
 .sommaire-img {
     position: absolute; inset: 0;
@@ -225,6 +229,7 @@ header {
     display: flex; gap: 1.2rem;
     transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
     will-change: transform;
+    justify-content: center; 
 }
 .carousel-item {
     position: relative;
@@ -266,7 +271,7 @@ header {
 /* ===== OÙ MANGER ===== */
 .manger-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     max-width: 1100px;
     margin: 0 auto;

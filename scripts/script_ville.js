@@ -2,39 +2,66 @@
 // (Le CSS :has() gère déjà l'assombrissement des cartes non-survolées)
 // Scroll smooth vers la section au clic (déjà géré par CSS scroll-behavior)
 
-// ===== CAROUSEL =====
+/// ===== CAROUSEL =====
 const track = document.getElementById('carousel-track');
 const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
 
-let currentIndex = 0;
-const itemWidth = () => {
-    const item = track.querySelector('.carousel-item');
-    return item ? item.offsetWidth + 19 : 280; // 19 = gap approx
-};
-const totalItems = () => track.querySelectorAll('.carousel-item').length;
-const visibleCount = () => Math.floor(track.parentElement.offsetWidth / itemWidth());
+if (track && prevBtn && nextBtn) {
+    let currentIndex = 0;
 
-function updateCarousel() {
-    const max = totalItems() - visibleCount();
-    if (currentIndex < 0) currentIndex = 0;
-    if (currentIndex > max) currentIndex = max;
-    track.style.transform = `translateX(-${currentIndex * itemWidth()}px)`;
-}
+    const itemWidth = () => {
+        const item = track.querySelector('.carousel-item');
+        return item ? item.offsetWidth + 19 : 280;
+    };
+    const totalItems = () => track.querySelectorAll('.carousel-item').length;
+    const visibleCount = () => Math.floor(track.parentElement.offsetWidth / itemWidth());
+    const needsCarousel = () => totalItems() > visibleCount();
 
-prevBtn.addEventListener('click', () => { currentIndex--; updateCarousel(); });
-nextBtn.addEventListener('click', () => { currentIndex++; updateCarousel(); });
-
-// Touch / swipe support
-let touchStartX = 0;
-track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
-track.addEventListener('touchend', e => {
-    const diff = touchStartX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) {
-        diff > 0 ? currentIndex++ : currentIndex--;
-        updateCarousel();
+    function updateCarouselAlignment() {
+        if (needsCarousel()) {
+            track.style.justifyContent = 'flex-start';
+            prevBtn.style.visibility = 'visible';
+            nextBtn.style.visibility = 'visible';
+        } else {
+            track.style.justifyContent = 'center';
+            track.style.transform = 'none';
+            currentIndex = 0;
+            prevBtn.style.visibility = 'hidden';
+            nextBtn.style.visibility = 'hidden';
+        }
     }
-});
+
+    function updateCarousel() {
+        if (!needsCarousel()) return;
+        const max = totalItems() - visibleCount();
+        if (currentIndex < 0) currentIndex = 0;
+        if (currentIndex > max) currentIndex = max;
+        track.style.transform = `translateX(-${currentIndex * itemWidth()}px)`;
+    }
+
+    prevBtn.addEventListener('click', () => { currentIndex--; updateCarousel(); });
+    nextBtn.addEventListener('click', () => { currentIndex++; updateCarousel(); });
+
+    // Touch / swipe support
+    let touchStartX = 0;
+    track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+    track.addEventListener('touchend', e => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) {
+            diff > 0 ? currentIndex++ : currentIndex--;
+            updateCarousel();
+        }
+    });
+
+    window.addEventListener('load', updateCarouselAlignment);
+    window.addEventListener('resize', () => {
+        updateCarouselAlignment();
+        updateCarousel();
+    });
+}
+window.addEventListener('load', updateCarouselAlignment);
+window.addEventListener('resize', updateCarouselAlignment);
 
 // ===== FRISE ÉVÉNEMENTS =====
 const tooltip = document.getElementById('event-tooltip');
