@@ -1,28 +1,37 @@
 <!DOCTYPE html>
+<!-- ================= META-DATA & IMPORTATION DOCS ================= -->
+<!-- Déclare la langue principale du contenu de la page web-->
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <!-- rend le site responsive (adapté aux mobiles) --> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Eve-Angeline, Imane">
     <title>CV - Imane BIYAR</title>
 
     <!-- Les polices -->
+    <!-- Prépare la connexion avec les serveurs de Google en avance pour gagner du temps au chargement-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!--  Télécharge les fichiers des polices choisies pour pouvoir les utiliser dans le CSS-->
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 
-    <!-- CSS : style.css en premier, puis Imane.css -->
-    <link rel="stylesheet" href="../styles/style.css">
+    <!--le fichier CSS-->
+    <link rel="stylesheet" href="../styles/style.css"> <!-- utilisé pour l'en tête et le pied de page-->
     <link rel="stylesheet" href="../styles/Imane.css">
 </head>
 <body>
 
-    <!-- ================= EN-TÊTE DE NAVIGATION (Fixé par style.css) ================= -->
+    <!-- ================= EN-TÊTE FIXE ================= -->
     <header id="main-header">
+        <!-- Logo SB qui ramène à l'accueil -->
         <a href="pagedegardebis.html" class="logo">SB</a>
-        <nav>
-            <ul class="nav-links">
-                <li class="dropdown">
+
+        <!-- Barre de navigation avec menus déroulants -->
+        <nav> <!-- Définit un bloc contenant des liens de navigation -->
+            <ul class="nav-links">  <!--  liste non ordonnée-->
+                <li class="dropdown"> <!-- élément de la liste-->
                     <a>Villes</a>
                     <ul class="dropdown-content">
                         <li><a href="tokyo.html">Tokyo</a></li>
@@ -46,11 +55,11 @@
         </nav>
     </header>
 
-    <!-- ================= CONTENU DU CV COMPLET ================= -->
-    <main class="cv-page">
+    <!-- ================= CONTENU DU CV ================= -->
+    <main class="cv-page"> <!-- "main" : exclut ce qui se répète sur tout le site (comme le header et le footer)-->
         <div class="cv-container">
             
-            <!-- On utilise DIV ici et pas HEADER pour éviter le conflit avec style.css -->
+            <!-- En tête du CV -->
             <div class="cv-intro">
                 <h1>Imane <span class="red-text">BIYAR</span></h1>
                 <p class="cv-title">M1 Bioinformatique</p>
@@ -60,15 +69,20 @@
             </div>
 
             <!-- Profil -->
+            <!-- titre de la section -->
             <section class="cv-section">
                 <h2 class="section-title">Profil</h2>
+
+            <!-- contenu de la section -->
                 <p>Étudiante en Master de Bioinformatique à l'Université Paris Cité. Compétences en <strong>Python</strong>, <strong>R</strong> et outils de <strong>biologie structurale</strong>. Intérêt marqué pour l'application du Machine Learning et de la modélisation à la <strong>médecine de précision</strong> et à la génomique.</p>
             </section>
 
             <!-- Formation -->
+            <!-- titre de la section -->
             <section class="cv-section">
                 <h2 class="section-title">Formation</h2>
                 
+                <!-- contenu de la section -->
                 <div class="entry">
                     <div class="entry-header">
                         <span class="entry-main"><strong>Université Paris Cité</strong></span>
@@ -107,8 +121,11 @@
             </section>
 
             <!-- Expérience -->
+            <!-- titre de la section -->
             <section class="cv-section">
                 <h2 class="section-title">Expérience</h2>
+
+                <!-- contenu de la section -->
                 <div class="entry">
                     <div class="entry-header">
                         <span class="entry-main"><strong>Université de Kyoto</strong></span>
@@ -126,9 +143,11 @@
             </section>
 
             <!-- Projets Académiques -->
+            <!-- titre de la section -->
             <section class="cv-section">
                 <h2 class="section-title">Projets Académiques</h2>
-                
+
+                <!-- contenu de la section -->
                 <div class="project-item">
                     <p><strong>Étude des variants d'ADAMTS13</strong><br>
                     <em>Outils : AlphaFold, BLAST, Clustal Omega, ProtScale, PSIPRED</em></p>
@@ -152,16 +171,22 @@
             </section>
 
             <!-- Compétences -->
+            <!-- titre de la section -->
             <section class="cv-section">
                 <h2 class="section-title">Compétences</h2>
+
+                <!-- contenu de la section -->
                 <div class="skill"><strong>Programmation :</strong> Python (Pandas, NumPy, Scikit-Learn), R (Tidyverse, ggplot2), Bash/Linux, SQL</div>
                 <div class="skill"><strong>Bioinformatique :</strong> AlphaFold, PyMOL, BLAST, Clustal Omega, PSIPRED, VMD</div>
                 <div class="skill"><strong>Statistiques :</strong> Tests d'hypothèses, Régression, ACP, Bases de Machine Learning</div>
             </section>
 
             <!-- Langues -->
+            <!-- titre de la section -->
             <section class="cv-section">
                 <h2 class="section-title">Langues</h2>
+
+                <!-- contenu de la section -->
                 <div class="lang-row">
                     <span><strong>Français :</strong> Langue maternelle</span>
                 </div>
@@ -173,7 +198,8 @@
 
         </div>
     </main>
-
+    
+<!-- ================= PIED DE PAGE ================= -->
     <footer>
         <div class="footer-content">
             <a class="footer-text">Auteurs</a> <br>
