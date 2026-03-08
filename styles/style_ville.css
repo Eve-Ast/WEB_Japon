@@ -264,7 +264,6 @@ header {
 .carousel-btn:hover { background: var(--red); color: var(--paper); border-color: var(--red); }
 
 /* ===== OÙ MANGER ===== */
-/* ===== OÙ MANGER ===== */
 .manger-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
