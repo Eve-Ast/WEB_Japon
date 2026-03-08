@@ -78,7 +78,7 @@
                     <div class="form-group">
                         <label>Votre Age :</label>
                         <select name="age" required> <!-- créer un menu déroulant-->
-                            <option value="15">≤ 15 ans</option>
+                            <option value="15">≤ 15 ans</option> <!-- "value" : donnée récuperée par le javascript-->
                             <option value="25">15 < x ≤ 25</option>
                             <option value="35">25 < x ≤ 35</option>
                             <option value="50">35 < x ≤ 50</option>
@@ -86,6 +86,7 @@
                         </select>
                     </div>
 
+                    <!-- Question 3 : La durée du voyage-->
                     <div class="form-group">
                         <label>Durée du voyage :</label>
                         <select name="duration" required>
@@ -96,16 +97,19 @@
                         </select>
                     </div>
 
+                    <!-- Question 4 : Leur préférence d'environnement-->
                     <div class="form-group">
                         <label>Votre Préférence :</label>
-                        <div class="radio-grid">
+                        <div class="radio-grid"> <!--  boîte (gérée en CSS) qui aligne les choix sous forme de petites cartes côte à côte.-->
                             <label class="radio-card"><input type="radio" name="pref" value="Foret" required> <span>Forêt</span></label>
                             <label class="radio-card"><input type="radio" name="pref" value="Mer"> <span>Mer</span></label>
                             <label class="radio-card"><input type="radio" name="pref" value="Ville"> <span>Ville</span></label>
                             <label class="radio-card"><input type="radio" name="pref" value="Montagne"> <span>Montagne</span></label>
+                            <!-- type="radio" : Permet de ne choisir qu'une seule réponse à la fois-->
                         </div>
                     </div>
 
+                    <!-- Question 5 : Leur saison de voyage-->
                     <div class="form-group">
                         <label>Quand Partez-vous ? :</label>
                         <div class="radio-grid">
@@ -116,6 +120,7 @@
                         </div>
                     </div>
 
+                    <!-- Question 6 : Leur partenaire de voyage-->
                     <div class="form-group">
                         <label>Avec qui voyagez-vous ? :</label>
                         <div class="radio-grid">
@@ -125,13 +130,17 @@
                         </div>
                     </div>
 
+                    <!-- Les buttons en fin de formulaire-->
                     <div class="form-buttons">
+                        <!-- Bouton reset -->
                         <button type="reset" class="btn-secondary">Réinitialiser</button>
+                        <!-- Bouton envoyer -->
                         <button type="submit" class="btn-primary">Envoyer</button>
                     </div>
                 </form>
             </div>
 
+            <!-- L'image -->
             <div class="image-side">
                 <img src="../img/JAL.png" alt="Avion JAL" class="side-img">
             </div>
@@ -139,35 +148,40 @@
 
         <!-- ================= SECTION RÉSULTAT (Cachée par défaut) ================= -->
         <section id="result-view" class="split-view hidden">
+
+            <!-- A GAUCHE -->
             <div class="result-side">
+
+                <!-- Petit texte-->
                 <div class="result-text">
-                    <span id="display-name" class="name-highlight">Ines</span>, que <br>
-                    pensez-vous <br>
-                    de découvrir <br>
+                    <span id="display-name" class="name-highlight">Ines</span>, que pensez-vous <br>
+                    de découvrir 
                     <span id="recommended-city" class="city-highlight">Tokyo</span> et ses environs ?
                 </div>
 
+                <!-- Carte du Japon avec la ville & les photos-->
                 <div class="map-result-container">
                     <img src="../img/cartejapon2.png" alt="Carte du Japon" class="mini-map">
                     
-                    <!-- Ville dynamique (Design identique page de garde) -->
+                    <!-- Ville -->
                     <div class="city" id="dynamic-city-result">
                         <div class="dot"></div>
                         <div id="city-label" class="city-name">Tokyo</div>
                     </div>
 
-                    <!-- Le carrousel automatique -->
+                    <!-- Le carrousel de photo automatique -->
                     <div id="result-carousel" class="carousel-result">
                         <div id="carousel-images-container" class="carousel-images">
-                            <!-- Les images sont injectées ici par JS -->
+                            <!-- Les images sont injectées ici par javascript -->
                         </div>
                     </div>
                 </div>
 
-                <!-- Bouton pour recommencer -->
+                <!-- Bouton pour refaire le quizz -->
                 <button id="btn-restart" class="btn-secondary" style="margin-top: 30px;">Refaire le quizz ?</button>
             </div>
 
+             <!-- L'image -->
             <div class="image-side">
                 <h2 class="bon-voyage">Bon voyage !</h2>
                 <img src="../img/JAL.png" alt="Avion JAL" class="side-img">
@@ -182,7 +196,8 @@
             <a  href= "./Eve-Angeline.html" class="footer-link">Eve-Angeline </a> <a>&</a> <a  href= "./Imane.html" class="footer-link">Imane </a>
         </div>
     </footer>
-
+ 
+    <!-- fichier Javascript -->
     <script src="../scripts/reco.js"></script>
 </body>
 </html>
