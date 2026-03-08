@@ -1,7 +1,7 @@
 /* ================================================= */
 /* 1. CONFIGURATION DES VILLES (COORDONNÉES ET IMAGES) */
 /* ================================================= */
-// On centralise tout ici pour que ce soit identique à la page de garde
+// Contient les positions GPS (CSS), les classes d'affichage et les images.
 const cityConfigs = {
     "Tokyo": { 
         top: "69%", left: "63%", 
@@ -53,8 +53,6 @@ document.getElementById('reco-form').addEventListener('submit', function(e) {
     // Récupération de TOUTES les données
     const name = document.getElementById('user-name').value;
     const formData = new FormData(this);
-    const age = formData.get('age');
-    const duration = formData.get('duration');
     const pref = formData.get('pref');
     const season = formData.get('season');
     const who = formData.get('who');
@@ -84,7 +82,7 @@ document.getElementById('reco-form').addEventListener('submit', function(e) {
         city = "Tokyo";
     }
 
-
+// Mise à jour de l'état global
     currentRecommendedCity = city;
     const config = cityConfigs[city];
 
@@ -97,7 +95,8 @@ document.getElementById('reco-form').addEventListener('submit', function(e) {
     // 2. Point et étiquette sur la carte
     const cityDiv = document.getElementById('dynamic-city-result');
     const label = document.getElementById('city-label');
-
+    
+  // Injection des données de la ville recommandée
     label.textContent = city;
     cityDiv.style.top = config.top;
     cityDiv.style.left = config.left;
