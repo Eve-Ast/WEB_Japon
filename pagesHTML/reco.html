@@ -1,13 +1,24 @@
 <!DOCTYPE html>
+<!-- ================= META-DATA & IMPORTATION DOCS ================= -->
+<!-- Déclare la langue principale du contenu de la page web-->
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <!-- rend le site responsive (adapté aux mobiles) --> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="author" content="Eve-Angeline, Imane">
     <title>Recommandation Personnalisée - Japon</title>
+
+    <!-- les polices -->
+    <!-- Prépare la connexion avec les serveurs de Google en avance pour gagner du temps au chargement-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+     <!--  Télécharge les fichiers des polices choisies pour pouvoir les utiliser dans le CSS-->
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+     <!--les fichiers CSS-->
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/reco.css">
 </head>
@@ -15,10 +26,14 @@
 
     <!-- ================= EN-TÊTE FIXE ================= -->
     <header id="main-header">
+
+        <!-- Logo SB qui ramène à l'accueil -->
         <a href="./pagedegardebis.html" class="logo">SB</a>
-        <nav>
-            <ul class="nav-links">
-                <li class="dropdown">
+
+        <!-- Barre de navigation avec menus déroulants -->
+        <nav> <!-- Définit un bloc contenant des liens de navigation -->
+            <ul class="nav-links"> <!--  liste non ordonnée-->
+                <li class="dropdown"> <!-- élément de la liste-->
                     <a>Villes</a>
                     <ul class="dropdown-content">
                         <li><a href="./tokyo.html">Tokyo</a></li>
@@ -45,20 +60,24 @@
     </header>
 
     <main class="reco-container">
-        <!-- ================= SECTION FORMULAIRE ================= -->
+        <!-- ================= CONTENU DE LA PAGE ================= -->
         <section id="form-view" class="split-view">
+
+            <!-- Le Formulaire-->
             <div class="form-side">
                 <h2 class="handwritten-title">Répondez à ces questions pour avoir une recommandation personnalisée !</h2>
                 
-                <form id="reco-form">
+                <!-- Question 1 : Le nom de l'utilisateur-->
+                <form id="reco-form"> <!-- "form" : sert à créer un bloc qui recueille des informations saisies par l'utilisateur.-->
                     <div class="form-group">
-                        <label>Votre Nom :</label>
-                        <input type="text" id="user-name" name="name" placeholder="écrivez votre prénom" required>
+                        <label>Votre Nom :</label> <!-- "label" : sert à donner un titre ou une étiquette à un élément de formulaire-->
+                        <input type="text" id="user-name" name="name" placeholder="écrivez votre prénom" required> <!-- permet à l'utilisateur de saisir des données-->
                     </div>
 
+                    <!-- Question 2 : L'âge de l'utilisateur-->
                     <div class="form-group">
                         <label>Votre Age :</label>
-                        <select name="age" required>
+                        <select name="age" required> <!-- créer un menu déroulant-->
                             <option value="15">≤ 15 ans</option>
                             <option value="25">15 < x ≤ 25</option>
                             <option value="35">25 < x ≤ 35</option>
