@@ -1,9 +1,13 @@
-// On sélectionne toutes les villes et la boîte d'information
+//SCRIPT DE LA PAGE DE GARDE 
+
+// On sélectionne toutes les villes et leur boîte d'information
+
+// On récupère le nom des villes 
 const cities = document.querySelectorAll('.city');
 
 cities.forEach(city => {
 
-    // 3. GESTION DU CARROUSEL D'IMAGES (Flèches)
+    // 1. GESTION DU CARROUSEL D'IMAGES (Flèches)
     const images = city.querySelectorAll('.carousel-images img');
     const prevBtn = city.querySelector('.carousel-btn.prev');
     const nextBtn = city.querySelector('.carousel-btn.next');
@@ -34,7 +38,7 @@ cities.forEach(city => {
         });
     }
 
-    // 4. CLIC SUR LA VILLE (REDIRECTION HTML)
+    // 2. CLIC SUR LA VILLE (REDIRECTION HTML)
     city.addEventListener('click', (event) => {
         // On vérifie qu'on n'a pas cliqué sur une flèche du carrousel
         if (!event.target.closest('.carousel-container')) {
