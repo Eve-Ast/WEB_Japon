@@ -91,7 +91,9 @@ document.getElementById('reco-form').addEventListener('submit', function(e) { //
     /* --- MISE À JOUR DE L'INTERFACE --- */
     
     // 1. Texte de recommandation
+    // on change le texte pour afficher le prenom de l'utilisateur 
     document.getElementById('display-name').textContent = name;
+    // on change le texte pour afficher la ville recomandée 
     document.getElementById('recommended-city').textContent = city;
     
     // 2. Point et étiquette sur la carte
