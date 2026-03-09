@@ -10,8 +10,10 @@ cities.forEach(city => { // on boucle sur les villes
     // 1. GESTION DU CARROUSEL D'IMAGES 
     // Les images
     const images = city.querySelectorAll('.carousel-images img'); // on cherche les images uniquement à l'intérieur de la ville sur laquelle on travaille
-    const prevBtn = city.querySelector('.carousel-btn.prev');
-    const nextBtn = city.querySelector('.carousel-btn.next');
+
+    //on cherche le bouton uniquement à l'intérieur de la ville actuelle
+    const prevBtn = city.querySelector('.carousel-btn.prev'); //cherche l'élément qui possède à la fois la classe carousel-btn et la classe prev
+    const nextBtn = city.querySelector('.carousel-btn.next'); //cherche l'élément qui possède à la fois la classe carousel-btn et la classe next
     let currentIndex = 0; // compteur qui retient quelle image est affichée (0 est la première)
 
     // fonction interne pour enlever la classe active à toutes les images de la ville, puis l'ajoute uniquement à celle désignée par index
@@ -49,7 +51,7 @@ cities.forEach(city => { // on boucle sur les villes
         if (!event.target.closest('.carousel-container')) {
             const cityId = city.id; // on récupère l'id écrit dans le HTML (ex: id="Tokyo")
             
-            window.location.href = `${cityId}.html`; 
+            window.location.href = `${cityId}.html`; // on dit au navigateur de changer de page
             
            
         }

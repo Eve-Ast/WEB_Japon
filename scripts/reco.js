@@ -1,11 +1,13 @@
+//SCRIPT DE LA PAGE RECOMMANDATION 
+
 /* ================================================= */
 /* 1. CONFIGURATION DES VILLES (COORDONNÉES ET IMAGES) */
 /* ================================================= */
-// Contient les positions GPS (CSS), les classes d'affichage et les images.
-const cityConfigs = {
+// Contient les positions, les classes d'affichage et les images.
+const cityConfigs = { // on crée une sorte de dictionnaire pour stocker toutes ces informations
     "Tokyo": { 
-        top: "69%", left: "63%", 
-        labelClass: "", 
+        top: "69%", left: "63%", // position sur la carte (les memes que dans le HTML de la page de recommandation)
+        labelClass: "", // la classe dans le fichier css
         images: ["tokyotower.jpeg", "akihabara.jpeg", "sensojitemple.jpeg", "shibuyacrossing.jpeg", "tower.jpeg", "shinjuku.jpeg"] 
     },
     "Kyoto": { 
@@ -47,12 +49,12 @@ let currentRecommendedCity = "";
 /* ================================================= */
 /* 2. GESTION DU FORMULAIRE                         */
 /* ================================================= */
-document.getElementById('reco-form').addEventListener('submit', function(e) {
-    e.preventDefault();
+document.getElementById('reco-form').addEventListener('submit', function(e) { // le script attend que l'utilisateur envoie le formulaire 
+    e.preventDefault(); // empêche le rechargement de la page une fois le formulaire envoyé pour que le script puisse afficher le résultat sur la même page
 
-    // Récupération de TOUTES les données
+    // Récupération de toutes les données
     const name = document.getElementById('user-name').value;
-    const formData = new FormData(this);
+    const formData = new FormData(this); //prend toutes les réponses du formulaire d'un coup 
     const pref = formData.get('pref');
     const season = formData.get('season');
     const who = formData.get('who');
