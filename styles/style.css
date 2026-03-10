@@ -26,26 +26,28 @@ html { scroll-behavior: smooth; }
 /* --- Styles de base --- */
 body {
     font-family: 'Arial Black', sans-serif;
-    margin: 0; /*Sécurité pour s'assurer qu'il n'y a aucun espace vide autour du contenu du site*/
-    padding: 0; /*Sécurité pour s'assurer qu'il n'y a aucun espace vide autour du contenu du site*/
+    margin: 0; /*sécurité pour s'assurer qu'il n'y a aucun espace vide autour du contenu du site*/
+    padding: 0; /*sécurité pour s'assurer qu'il n'y a aucun espace vide autour du contenu du site*/
     background: var(--paper);
     color: var(--red);
-    overflow-x: hidden; /*C'est une sécurité pour éviter que le site défilement horizontalement sur mobile si un élément dépasse*/
-    padding-top: 80px; /* Laisse de l'espace pour que l'en-tête fixe ne cache pas le titre */
+    overflow-x: hidden; /*sécurité pour éviter que le site défilement horizontalement sur mobile si un élément dépasse*/
+    padding-top: 80px; /* laisse de l'espace pour que l'en-tête fixe ne cache pas le titre */
 }
 
 /* --- En-tête (Header) --- */
 header {
     position: fixed; /*permet au menu de rester en haut de l'écran, même quand on défile vers le bas*/
-    top: 0; /*Place le menu tout en haut à gauche de la fenêtre*/
-    left: 0; /*Place le menu tout en haut à gauche de la fenêtre*/
+    top: 0; /*place le menu tout en haut à gauche de la fenêtre*/
+    left: 0; /*place le menu tout en haut à gauche de la fenêtre*/
     width: 100%; /*occupe toute la largeur de l'écran*/
-    height: 70px; /*Définit la hauteur de la barre de navigation*/
+    height: 70px; /*définit la hauteur de la barre de navigation*/
     background-color: var(--paper);
     box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* petite ombre portée en dessous pour donner un effet de relief*/
+
     display: flex; 
-    justify-content: right; /*Pousse les liens de navigation vers la droite*/
-    align-items: center; /*Centre verticalement le logo et les liens dans les 70px de hauteur*/
+    justify-content: right; /*pousse les liens de navigation vers la droite*/
+    align-items: center; /*aligne  le logo et les textes sur la même ligne au milieu des 70px de hauteur du header*/
+
     padding: 0 30px; /* 30px d'espace à gauche et à droite du contenu et 0px en haut et bas*/
     box-sizing: border-box;
     z-index: 1000; /* définit l'ordre d'empilement. Avec 1000, le menu passera toujours au-dessus de tous les autres éléments du site*/
@@ -53,14 +55,21 @@ header {
 
 /* Logo "SB" */
 .logo {
-    position: absolute;  /*permet au logo de rester en haut de l'écran, même quand on défile vers le bas*/ 
+    position: absolute;  /*sors le logo du reste du menu pour le placer à gauche sans qu'il soit poussé à droite avec les autres liens*/ 
     left: 10px; /* espacement de la bordure gauche de l'écran*/
-    text-decoration: none;
-    color:  #d62020;
+    text-decoration: none; /* enlève le soulignement automatique car lien hypertext*/
+    color:  var(--red);
     font-weight: bold;
     font-size: 24px;
-    width: 45px;
+
+    /*crée un carré invisible de 45 pixels tout autour des lettres
+    ce qui permet d'agrandir la zone cliquable et non de se réduire qu'aux lettres*/
+    width: 45px; 
     height: 45px;
+
+    /*utilises flexbox à l'intérieur du logo pour que les lettres
+    soient parfaitement centrées (horizontalement et verticalement) 
+    dans le carré de 45px*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,9 +77,11 @@ header {
 
 /* Menus de navigation */
 .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 100px;
+    list-style: none; /* enlève les puces qui apparaissent normalement devant chaque élément d'une liste*/
+    display: flex; /*aligne les onglets sur une seule ligne horizontale au lieu qu'ils soient les uns sous les autres*/
+    gap: 100px; /*espacement entre les éléments du menu*/
+
+    /*supprime les espacements que le navigateur ajoute par défaut aux listes*/
     margin: 0;
     padding: 0;
 }
