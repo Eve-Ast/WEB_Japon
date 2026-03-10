@@ -53,11 +53,11 @@ document.getElementById('reco-form').addEventListener('submit', function(e) { //
     e.preventDefault(); // empêche le rechargement de la page une fois le formulaire envoyé pour que le script puisse afficher le résultat sur la même page
 
     // Récupération de toutes les données
-    const name = document.getElementById('user-name').value;
     const formData = new FormData(this); //prend toutes les réponses du formulaire d'un coup 
-    const pref = formData.get('pref');
-    const season = formData.get('season');
-    const who = formData.get('who');
+    const name = formData.get('name'); //le nom de l'utilisateur 
+    const pref = formData.get('pref'); // la préfèrence d'environnement
+    const season = formData.get('season'); // sa saison de voyage
+    const who = formData.get('who'); // avec qui il voyage
     
 
     // --- LOGIQUE DE RECOMMANDATION ---
@@ -68,7 +68,7 @@ document.getElementById('reco-form').addEventListener('submit', function(e) { //
         city = "Tokyo";
     } 
     // Condition 2 : Forêt -> Kyoto
-    else if (pref === "Foret") {
+    else if (pref === "Foret" || who === "Couple" ) {
         city = "Kyoto";
     } 
     // Condition 3 : Ville + Amis ou Famille -> Osaka
@@ -98,8 +98,8 @@ document.getElementById('reco-form').addEventListener('submit', function(e) { //
     document.getElementById('recommended-city').textContent = city;
     
     // 2. Point et étiquette sur la carte
-    const cityDiv = document.getElementById('dynamic-city-result');
-    const label = document.getElementById('city-label');
+    const cityDiv = document.getElementById('dynamic-city-result'); // contient le point rouge + le nom de la ville
+    const label = document.getElementById('city-label'); // l'étiquette sur laquelle est écrit le nom de la ville
     
   // Injection des données de la ville recommandée
     label.textContent = city;
@@ -147,7 +147,7 @@ document.getElementById('btn-restart').addEventListener('click', () => {
 /* ================================================= */
 function startAutoCarousel(cityName, imagesList) {
     const container = document.getElementById('carousel-images-container');
-    container.innerHTML = ""; // efface les photos de la recherche précédente.
+    container.innerHTML = ""; // efface les photos du résultat précédent (si on refait le quizz plusieurs fois)
     
     const folder = cityName.toLowerCase();
 
@@ -162,9 +162,9 @@ function startAutoCarousel(cityName, imagesList) {
     });
 
     let currentIndex = 0;
-    const allImages = container.querySelectorAll('img');
+    const allImages = container.querySelectorAll('img'); // liste contenant toutes les images qui viennent d'être ajoutées dans le carrousel
 
-    if (carouselInterval) clearInterval(carouselInterval);
+    if (carouselInterval) clearInterval(carouselInterval); // sécurité pour arrêter le défilement précédent si il tourne
 
     if (allImages.length > 0) {
         carouselInterval = setInterval(() => { 
