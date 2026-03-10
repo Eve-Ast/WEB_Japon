@@ -3,16 +3,17 @@
     --ink: #0e0c0a;
     --paper: #f5f2ec;
     --red: #d62020;
-    --gold: #c9a84c;
     --muted: #7a7168;
     --card-h: 420px;
     --transition: 0.45s cubic-bezier(0.4,0,0.2,1);
 }
-
+/* base propre pour commencer le design en enlevant les marges et paddings par défaut
+et applique le border-box */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; }
 
+/* choix de la police génerale et background de l'ensemble de la page */
 body {
     font-family: 'DM Sans', sans-serif;
     background: var(--paper);
@@ -29,12 +30,12 @@ header {
     height: 70px;
     background-color: var(--paper);
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    display: flex;
-    justify-content: right; 
+    display: flex; 
+    justify-content: right; /* alignement des element dans la navbar à droite */
     align-items: center;
-    padding: 0 30px;
-    box-sizing: border-box;
-    z-index: 1000; 
+    padding: 0 30px; /* espace à l'intérieur du header */ 
+    box-sizing: border-box; /* le padding ne rajoute pas de la largeur */
+    z-index: 1000; /* le header ne sera pas caché par d'autres élements*/
 }
 
 /* Logo "SB" */
@@ -55,14 +56,16 @@ header {
 }
 
 /* Menu de navigation */ 
+/* tout elements du header*/
 .nav-links {
-    list-style: none;
+    list-style: none; /* pas de puce */
     display: flex;
     gap: 100px;
     margin: 0;
     padding: 0;
 }
 
+/*styles de chaque element*/
 .nav-links > li > a {
     font-family: 'Arial Black', sans-serif;
     text-decoration: none;
@@ -92,6 +95,7 @@ header {
     font-family: 'Shippori Mincho', serif;
 }
 
+/* quand on survole un elements, la liste doit apparaitre */
 .dropdown:hover .dropdown-content { display: block; }
 
 .dropdown-content li a {
@@ -102,7 +106,6 @@ header {
     text-align: center; 
 }
 
-/* .dropdown-content li a:hover { background: rgba(201,168,76,0.1); color: var(--gold); } */
 .dropdown-content li a:hover {
     background-color: #f1f1f1;
     color: red;
@@ -116,36 +119,54 @@ header {
     display: flex; align-items: flex-end;
     padding-bottom: 6rem;
 }
+/* vh (viewport height): taille liée à l'écran, rem : relatif a la taille du texte */
+
 .hero-overlay {
-    position: absolute; inset: 0;
+    position: absolute;
+    inset: 0; /*raccourci pour top:0, right:0, left:0, bottom:0*/
     background: linear-gradient(to top, rgba(10,8,6,0.65) 40%, rgba(10,8,6,0.3) 100%);
 }
+
 .hero-content {
-    position: relative; z-index: 1;
-    max-width: 720px; padding: 0 5vw;
+    position: relative; 
+    z-index: 1;
+    max-width: 720px; 
+    padding: 0 5vw; /* vw : viewport width : 5% de la largeur de l'écran*/
 }
 
 .hero-title {
     font-family: 'Shippori Mincho', serif;
     font-size: clamp(4rem, 9vw, 8rem);
-    font-weight: 800; color: #fff;
-    line-height: 1; margin-bottom: 1.4rem;
+    font-weight: 800; 
+    color: #fff;
+    line-height: 1; 
+    margin-bottom: 1.4rem;
     letter-spacing: -0.02em;
 }
 .hero-text {
-    font-size: 1rem; line-height: 1.7;
-    color: rgba(240,235,225,0.85); max-width: 560px;
+    font-size: 1rem; 
+    line-height: 1.7;
+    color: rgba(240,235,225,0.85); 
+    max-width: 560px;
     font-weight: 300;
 }
+/* fleche pour indiquer de scroller*/
 .scroll-hint {
-    position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
-    color: rgba(255,255,255,0.5); font-size: 1.4rem; z-index: 1;
-    animation: bounce 1.8s ease-in-out infinite;
+    position: absolute; 
+    bottom: 2.5rem; 
+    left: 50%; /*place le centre bord gauche de l'element au milieu horizontal de son parent*/ 
+    transform: translateX(-50%); /* permet de centrer parfaitement l'élement en décalant vers la gauche de 50% de sa propre largeur*/
+    color: rgba(255,255,255,0.5); 
+    font-size: 1.4rem; 
+    z-index: 1;
+    animation: bounce 1.8s ease-in-out infinite; /* animation rebondit*/
 }
+/* définition de l'animation*/
 @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
 
 /* ===== SOMMAIRE ===== */
-.sommaire { padding: 5rem 5vw; }
+.sommaire { padding: 5rem 5vw; } /* espace entre le contenu et le bord de l'élément, ici entre le bas et le haut de l'émément : 5rem et sur les cotés 5% de la largeur de l'écran*/
+
 .sommaire-grid {
     display: flex;
     flex-wrap: wrap;
@@ -199,8 +220,8 @@ header {
 }
 
 /* ===== SECTIONS COMMUNES ===== */
-.section-block { padding: 6rem 5vw; }
-.section-alt { background: var(--ink); color: var(--paper); }
+.section-block { padding: 6rem 5vw; } /* separation entre les bords de l'élément et son contenu*/
+.section-alt { background: var(--ink); color: var(--paper); } /*alternance du backroug pour différencier les section*/
 
 .section-header { max-width: 700px; margin: 0 auto 3.5rem; text-align: center; }
 .section-tag {
@@ -219,14 +240,19 @@ header {
 
 /* ===== CAROUSEL ===== */
 .carousel-wrapper {
-    display: flex; align-items: center; gap: 1rem;
-    max-width: 1200px; margin: 0 auto;
+    display: flex; 
+    align-items: center; 
+    gap: 1rem;
+    max-width: 1200px; 
+    margin: 0 auto;
 }
 .carousel-track-container {
-    overflow: hidden; flex: 1;
+    overflow: hidden; 
+    flex: 1;
 }
 .carousel-track {
-    display: flex; gap: 1.2rem;
+    display: flex; 
+    gap: 1.2rem;
     transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
     will-change: transform;
     justify-content: center; 
@@ -304,7 +330,7 @@ header {
 .manger-img {
     width: 100%;
     height: 260px;
-    object-fit: contain;   /* 👈 IMAGE TOUJOURS ENTIÈRE */
+    object-fit: contain;   /* IMAGE TOUJOURS ENTIÈRE */
     background-color: var(--ink);
 }
 
@@ -364,6 +390,8 @@ header {
 }
 
 /* RESPONSIVE */
+/* si l'ecran fait 900px ou moins, la grille est divisée en 1 seule colonne*/
+/* fr : fraction de l'espace disponible (1fr : toute la largeur disponible)*/
 @media (max-width: 900px) {
     .manger-grid {
         grid-template-columns: 1fr;
