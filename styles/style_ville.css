@@ -429,6 +429,7 @@ header {
     font-weight: 400;
 }
 
+
 /* Tooltip */
 .event-tooltip {
     display: none;
@@ -458,12 +459,51 @@ header {
 footer {
     background: #f5f2ec;
     border-top: 1px solid rgba(201,168,76,0.15);
-    padding: 1rem 5vw; text-align: center;
+    padding: 2rem 5vw;
     color: var(--ink);
     font-family: 'Arial Black', sans-serif;
 }
-.footer-link { color: var(--ink); text-decoration: none; font-size: 1rem;  }
-.footer-link:hover { color: var(--red); }
+
+.footer-content {
+    display: flex;
+    justify-content: space-between; /* deux colonnes espacées */
+    flex-wrap: wrap; /* responsive sur petit écran */
+    text-align: left;
+    gap: 2rem; /* espace entre les colonnes */
+}
+
+.footer-column {
+    flex: 1; /* chaque colonne prend de l'espace équitable */
+    min-width: 200px; /* pour que ça reste lisible sur mobile */
+}
+
+.footer-title {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.footer-list {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-list li {
+    margin-bottom: 0.3rem; /* espace entre les liens */
+}
+
+.footer-link {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: var(--red);
+}
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {

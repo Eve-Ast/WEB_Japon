@@ -63,35 +63,67 @@ if (track && prevBtn && nextBtn) {
 window.addEventListener('load', updateCarouselAlignment);
 window.addEventListener('resize', updateCarouselAlignment);
 
+
 // ===== FRISE ÉVÉNEMENTS =====
 const tooltip = document.getElementById('event-tooltip');
 const tooltipImg = document.getElementById('tooltip-img');
 const tooltipName = document.getElementById('tooltip-name');
 const tooltipDesc = document.getElementById('tooltip-desc');
+const tooltipSource = document.getElementById('tooltip-source');
 
+// Sélection de tous les dots de la timeline
 document.querySelectorAll('.t-dot').forEach(dot => {
+
+    // Au survol du dot
     dot.addEventListener('mouseenter', (e) => {
         tooltipImg.src = dot.dataset.img;
         tooltipImg.alt = dot.dataset.event;
         tooltipName.textContent = dot.dataset.event;
         tooltipDesc.textContent = dot.dataset.desc;
+
+        // Gestion du lien source
+        if(dot.dataset.source){
+            tooltipSource.href = dot.dataset.source;
+            tooltipSource.style.display = "inline-block";
+        } else {
+            tooltipSource.style.display = "none";
+        }
+
         tooltip.classList.add('visible');
         positionTooltip(e);
     });
+
+    // Suivre la souris pour positionner le tooltip
     dot.addEventListener('mousemove', positionTooltip);
+
+    // Quand la souris quitte le dot
     dot.addEventListener('mouseleave', () => {
-        tooltip.classList.remove('visible');
+        // Masquer le tooltip seulement si la souris n'est pas sur le tooltip
+        setTimeout(() => {
+            if(!tooltip.matches(':hover')){
+                tooltip.classList.remove('visible');
+            }
+        }, 100); // petit délai pour éviter disparition instantanée
     });
 });
 
+// Masquer le tooltip lorsque la souris quitte le tooltip lui-même
+tooltip.addEventListener('mouseleave', () => {
+    tooltip.classList.remove('visible');
+});
+
+// Fonction pour positionner le tooltip près de la souris
 function positionTooltip(e) {
     const margin = 16;
     let x = e.clientX + margin;
     let y = e.clientY + margin;
     const tw = tooltip.offsetWidth || 260;
     const th = tooltip.offsetHeight || 200;
+
+    // Empêcher le tooltip de sortir de l'écran
     if (x + tw > window.innerWidth - margin) x = e.clientX - tw - margin;
     if (y + th > window.innerHeight - margin) y = e.clientY - th - margin;
+
     tooltip.style.left = x + 'px';
     tooltip.style.top = y + 'px';
 }
