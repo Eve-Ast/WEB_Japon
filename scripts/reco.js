@@ -53,11 +53,11 @@ document.getElementById('reco-form').addEventListener('submit', function(e) { //
     e.preventDefault(); // empêche le rechargement de la page une fois le formulaire envoyé pour que le script puisse afficher le résultat sur la même page
 
     // Récupération de toutes les données
-    const name = document.getElementById('user-name').value;
     const formData = new FormData(this); //prend toutes les réponses du formulaire d'un coup 
-    const pref = formData.get('pref');
-    const season = formData.get('season');
-    const who = formData.get('who');
+    const name = formData.get('name'); //le nom de l'utilisateur 
+    const pref = formData.get('pref'); // la préfèrence d'environnement
+    const season = formData.get('season'); // sa saison de voyage
+    const who = formData.get('who'); // avec qui il voyage
     
 
     // --- LOGIQUE DE RECOMMANDATION ---
@@ -68,7 +68,7 @@ document.getElementById('reco-form').addEventListener('submit', function(e) { //
         city = "Tokyo";
     } 
     // Condition 2 : Forêt -> Kyoto
-    else if (pref === "Foret") {
+    else if (pref === "Foret" || who === "Couple" ) {
         city = "Kyoto";
     } 
     // Condition 3 : Ville + Amis ou Famille -> Osaka
