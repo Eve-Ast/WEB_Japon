@@ -86,12 +86,15 @@ document.getElementById('reco-form').addEventListener('submit', function(e) { //
 
 // Mise à jour de l'état global
     currentRecommendedCity = city;
+    //on récupère les réglages de la ville recommandée dans notre dictionnaire
     const config = cityConfigs[city];
 
     /* --- MISE À JOUR DE L'INTERFACE --- */
     
     // 1. Texte de recommandation
+    // on change le texte pour afficher le prenom de l'utilisateur 
     document.getElementById('display-name').textContent = name;
+    // on change le texte pour afficher la ville recomandée 
     document.getElementById('recommended-city').textContent = city;
     
     // 2. Point et étiquette sur la carte
@@ -100,7 +103,7 @@ document.getElementById('reco-form').addEventListener('submit', function(e) { //
     
   // Injection des données de la ville recommandée
     label.textContent = city;
-    cityDiv.style.top = config.top;
+    cityDiv.style.top = config.top; // On déplace le point rouge
     cityDiv.style.left = config.left;
     
     // On applique la classe spécifique pour que le texte soit bien placé autour du point
@@ -111,9 +114,11 @@ document.getElementById('reco-form').addEventListener('submit', function(e) { //
     startAutoCarousel(city, config.images);
 
     // 4. Basculement visuel
+    // On ajoute la classe hidden au formulaire (pour le cacher) et on l'enlève au résultat (pour l'afficher)
     document.getElementById('form-view').classList.add('hidden');
     document.getElementById('result-view').classList.remove('hidden');
     
+    // on remonte automatiquement en haut de la page pour que l'utilisateur voie son résultat immédiatement.
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
@@ -142,11 +147,12 @@ document.getElementById('btn-restart').addEventListener('click', () => {
 /* ================================================= */
 function startAutoCarousel(cityName, imagesList) {
     const container = document.getElementById('carousel-images-container');
-    container.innerHTML = ""; 
+    container.innerHTML = ""; // efface les photos de la recherche précédente.
     
     const folder = cityName.toLowerCase();
 
-    // Injection des images dans le DOM
+    // pour chaque image dans la liste de la ville, on crée une balise <img>,
+    // pour donner le bon chemin (src) et on ajoute la classe "active" à la première pour l'afficher
     imagesList.forEach((imgName, index) => {
         const img = document.createElement('img');
         img.src = `../img/${folder}/${imgName}`;
@@ -161,9 +167,12 @@ function startAutoCarousel(cityName, imagesList) {
     if (carouselInterval) clearInterval(carouselInterval);
 
     if (allImages.length > 0) {
-        carouselInterval = setInterval(() => {
+        carouselInterval = setInterval(() => { 
+            // Enlever la classe active de l'image actuelle
             allImages[currentIndex].classList.remove('active');
+            //quand on affiche la dernière image, on revient au début
             currentIndex = (currentIndex + 1) % allImages.length;
+            // activer/afficher l'image suivante 
             allImages[currentIndex].classList.add('active');
         }, 2000); // Défilement toutes les 2 secondes
     }
