@@ -241,21 +241,7 @@
   margin-left: 0.3rem;
 }
 
-/* ===== FOOTER (cohérence avec le site) ===== */
-footer {
-  background: var(--ink);
-  border-top: 1px solid rgba(201,168,76,0.15);
-  padding: 2rem;
-  text-align: center;
-}
-.footer-text { color: var(--muted); font-size: 0.85rem; }
-.footer-link {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 0.85rem;
-  transition: color 0.2s;
-}
-.footer-link:hover { color: var(--gold); }
+
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 640px) {
