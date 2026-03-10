@@ -96,11 +96,6 @@ function positionTooltip(e) {
     tooltip.style.top = y + 'px';
 }
 
-// ===== HEADER : fond plus opaque au scroll =====
-const header = document.getElementById('main-header');
-window.addEventListener('scroll', () => {
-    header.style.background = '#f5f2ec';
-});
 
 // ===== MANGER CAROUSELS =====
 document.querySelectorAll('.manger-carousel').forEach(carousel => {
