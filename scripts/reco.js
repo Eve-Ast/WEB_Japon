@@ -98,8 +98,8 @@ document.getElementById('reco-form').addEventListener('submit', function(e) { //
     document.getElementById('recommended-city').textContent = city;
     
     // 2. Point et étiquette sur la carte
-    const cityDiv = document.getElementById('dynamic-city-result');
-    const label = document.getElementById('city-label');
+    const cityDiv = document.getElementById('dynamic-city-result'); // contient le point rouge + le nom de la ville
+    const label = document.getElementById('city-label'); // l'étiquette sur laquelle est écrit le nom de la ville
     
   // Injection des données de la ville recommandée
     label.textContent = city;
@@ -147,7 +147,7 @@ document.getElementById('btn-restart').addEventListener('click', () => {
 /* ================================================= */
 function startAutoCarousel(cityName, imagesList) {
     const container = document.getElementById('carousel-images-container');
-    container.innerHTML = ""; // efface les photos de la recherche précédente.
+    container.innerHTML = ""; // efface les photos du résultat précédent (si on refait le quizz plusieurs fois)
     
     const folder = cityName.toLowerCase();
 
@@ -162,9 +162,9 @@ function startAutoCarousel(cityName, imagesList) {
     });
 
     let currentIndex = 0;
-    const allImages = container.querySelectorAll('img');
+    const allImages = container.querySelectorAll('img'); // liste contenant toutes les images qui viennent d'être ajoutées dans le carrousel
 
-    if (carouselInterval) clearInterval(carouselInterval);
+    if (carouselInterval) clearInterval(carouselInterval); // sécurité pour arrêter le défilement précédent si il tourne
 
     if (allImages.length > 0) {
         carouselInterval = setInterval(() => { 
