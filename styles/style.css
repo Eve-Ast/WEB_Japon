@@ -461,6 +461,13 @@ footer {
         font-size: 2.2em; /* Réduit la taille du grand titre "Découvrez le Japon" */
     }
 
+    .dropdown-content {
+        min-width: 50px; /*largeur de la boxe*/
+        left: 30%;
+        transform: translateX(-50%);
+
+    }
+
     /* --- AJUSTEMENT DES CARROUSELS POUR QU'ILS TIENNENT SUR L'ÉCRAN --- */
 
     .city.active-mobile .carousel-container {
