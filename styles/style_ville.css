@@ -187,7 +187,8 @@ header {
     flex-wrap: wrap;
     justify-content: center;
     gap: 1.5rem;
-    max-width: 1100px; margin: 0 auto;
+    max-width: 1100px; 
+    margin: 0 auto;
 }
 .sommaire-card {
     position: relative;
@@ -198,31 +199,41 @@ header {
     flex: 0 1 calc(33.333% - 1rem);
 }
 .sommaire-img {
-    position: absolute; inset: 0;
-    background-size: cover; background-position: center;
+    position: absolute; 
+    inset: 0;
+    background-size: cover; 
+    background-position: center;
     transition: transform var(--transition), filter var(--transition);
 }
 .sommaire-overlay {
-    position: absolute; inset: 0;
+    position: absolute; 
+    inset: 0;
     background: rgba(0,0,0,0);
     transition: background var(--transition);
     pointer-events: none;
 }
 .sommaire-label {
-    position: absolute; bottom: 0; left: 0; right: 0;
+    position: absolute; 
+    inset: 0;
     padding: 2rem 1.5rem 1.5rem;
     background: linear-gradient(to top, rgba(10,8,6,0.8) 0%, transparent 100%);
-    z-index: 2; display: flex; flex-direction: column; gap: 0.2rem;
+    z-index: 2; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-end;
+    gap: 0.2rem;
     transition: opacity var(--transition);
 }
 .sommaire-num {
     font-family: 'Shippori Mincho', serif;
-    font-size: 0.75rem; letter-spacing: 0.25em;
+    font-size: 0.75rem; 
+    letter-spacing: 0.25em;
     color: var(--red);
 }
 .sommaire-name {
     font-family: 'Shippori Mincho', serif;
-    font-size: 1.5rem; font-weight: 600;
+    font-size: 1.5rem; 
+    font-weight: 600;
     color: #fff;
 }
 
@@ -416,16 +427,6 @@ header {
     letter-spacing: 0.05em;
 }
 
-/* RESPONSIVE */
-/* si l'ecran fait 900px ou moins, la grille est divisée en 1 seule colonne*/
-/* fr : fraction de l'espace disponible (1fr : toute la largeur disponible)*/
-@media (max-width: 900px) {
-    .manger-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-
 /* ===== ÉVÉNEMENTS FRISE ===== */
 .timeline-wrapper { max-width: 1100px; margin: 0 auto; position: relative; }
 .timeline-scroll { overflow-x: auto; padding-bottom: 1rem; }
@@ -536,11 +537,23 @@ footer {
 }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-    .sommaire-grid { grid-template-columns: 1fr; }
-    .manger-grid { grid-template-columns: 1fr; }
-    .hero-title { font-size: 3.5rem; }
+/* si l'ecran fait 900px ou moins, la grille est divisée en 1 seule colonne*/
+/* fr : fraction de l'espace disponible (1fr : toute la largeur disponible)*/
+@media (max-width: 900px) {
+    .manger-grid {
+        grid-template-columns: 1fr;
+    }
+    /* .sommaire-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .sommaire-card{
+        flex: 0 1 100%;
+        max-width: 500px;
+    } */
 }
+
+
 /* Pour les petits écrans (Téléphones) */
 @media (max-width: 768px) {
     header {
@@ -556,4 +569,5 @@ footer {
     .nav-links > li > a {
         font-size: 14px; /* Réduit un peu la taille de la police du menu */
     }
+    .hero-title { font-size: 3.5rem; }
 }
