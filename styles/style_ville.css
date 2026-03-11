@@ -543,14 +543,14 @@ footer {
     .manger-grid {
         grid-template-columns: 1fr;
     }
-    /* .sommaire-grid {
-        flex-direction: column;
+    .sommaire-grid {
+        flex-direction: row;
         align-items: center;
     }
     .sommaire-card{
         flex: 0 1 100%;
         max-width: 500px;
-    } */
+    }
 }
 
 
