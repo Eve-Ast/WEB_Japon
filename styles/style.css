@@ -395,25 +395,29 @@ footer {
 
 /* ===== POSITIONS SPÉCIFIQUES DES PHOTOS===== */
 
-.city.carousel-bottom .carousel-container {
-    bottom: auto;
-    top: 100%; 
+.city.carousel-bottom .carousel-container { /* Nara & Osaka */
+    bottom: auto; /*Annule le réglage par défaut 
+    (qui plaçait normalement les photos 25px au-dessus du point)*/
+    top: 100%; /*Aligne le haut du cadre photo sur le point rouge, 
+    ce qui le place donc en dessous*/
     margin-top: 4px; 
 }
 
-.city.carousel-left .carousel-container {
+.city.carousel-left .carousel-container { /*Kobe*/
     bottom: auto;
-    top: 50%;
-    transform: translateY(-50%); 
     left: auto;
-    right: 60px; 
+    top: 50%;
+    transform: translateY(-50%); /*on centre la pht par rapport au point*/
+    right: 60px; /*Pousse le cadre photo vers la gauche.
+     Il s'arrête à 60 pixels de distance du point rouge.*/
 }
 
-.city.carousel-right .carousel-container {
+.city.carousel-right .carousel-container { /*Uji & Tokyo */
     bottom: auto;
     top: 50%;
     transform: translateY(-50%); 
-    left: 52px; 
+    left: 52px; /*Pousse le cadre photo vers la droite.
+     Il s'arrête à 52 pixels de distance du point rouge.*/
 }
 
 
