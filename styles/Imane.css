@@ -1,4 +1,10 @@
 /* ===== CONFIGURATION DE LA PAGE CV ===== */
+/* ===== VARIABLES ===== */
+:root { /* la racine du site (le document entier)*/
+    --ink: #0e0c0a; /*on crée des variables pour les couleurs qu'on va utilisé pour plus de simplicité */
+    --paper: #f5f2ec;
+    --red: #d62020;
+}
 
 /* On force un padding en haut pour compenser le header fixe de style.css */
 body {
@@ -6,7 +12,7 @@ body {
 }
 
 .cv-page {
-    background-color: #f5f2ec; /* --paper */
+    background-color: var(--paper);
     padding: 100px 20px 50px 20px; /* 100px en haut pour laisser la nav visible */
     display: flex;
     justify-content: center;
@@ -36,12 +42,12 @@ body {
 }
 
 .red-text {
-    color: #d62020; /* --red */
+    color: var(--red)
 }
 
 .cv-title {
     font-size: 1.5rem;
-    color: #555;
+    color: var(--ink);
     margin-bottom: 10px;
 }
 
@@ -58,10 +64,10 @@ body {
 
 .section-title {
     font-family: 'Shippori Mincho', serif;
-    color: #d62020;
+    color: var(--red);
     text-transform: uppercase;
     font-size: 1.2rem;
-    border-bottom: 2px solid #d62020;
+    border-bottom: 2px solid var(--red);
     margin-bottom: 15px;
     padding-bottom: 5px;
 }

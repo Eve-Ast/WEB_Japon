@@ -68,18 +68,18 @@
     display: block;
     font-family: 'Shippori Mincho', serif;
     font-weight: bold;
-    margin-bottom: 8px; /*petit espace de 8 pixels entre la question et la zone de réponse.*/
-    font-size: 1.1rem;
+    margin-bottom: 8px; /*petit espace de 8 pixels entre la question et la zone de réponse*/
+    font-size: 1.1rem; /* taille de texte légèrement supérieure (10% de plus) à la normale*/
 }
-
-input[type="text"],
+ /*pour les champs de saisie de texte et les menus déroulants*/
+input[type="text"], 
 select {
     width: 100%;
-    padding: 10px;
+    padding: 10px; /*espace de 10 pixels à l'intérieur*/
     border: 2px solid var(--ink);
     font-family: 'DM Sans', sans-serif;
     font-size: 1rem;
-    background: transparent;
+    background: transparent; /* fond invisible */
 }
 
 .radio-grid {
