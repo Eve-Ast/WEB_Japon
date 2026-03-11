@@ -86,15 +86,16 @@ header {
     padding: 0;
 }
 
-.nav-links > li > a {
-    text-decoration: none;
-    color: #333;
+.nav-links > li > a { /*on cherche les liens "a" qui sont dans les 
+    éléments de liste "li" du menu principal .nav-links */
+    text-decoration: none; /* enlève le soulignement automatique car lien hypertext*/
+    color: var(--ink);
     font-size: 18px;
-    padding: 10px 0;
-    border-bottom: 2px solid transparent;
+    padding: 10px 0; /* 10px d'espace au-dessus et en dessous du texte pour agrandir la zone cliquable*/
+    /*border-bottom: 2px solid transparent; */
 }
 
-.nav-links > li > a:hover { color: #d62020; } /* Changer de couleur quand on passe la souris dessus */
+.nav-links > li > a:hover { color: var(--red); } /* Changer de couleur quand on passe la souris dessus */
 
 /* --- Menus déroulants (Dropdowns) --- */
 .dropdown {
