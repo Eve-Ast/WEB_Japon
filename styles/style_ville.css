@@ -580,5 +580,12 @@ footer {
     .nav-links > li > a {
         font-size: 14px; /* Réduit un peu la taille de la police du menu */
     }
+
+    .dropdown-content {
+        min-width: 50px; /*largeur de la boxe*/
+        left: 30%;
+        transform: translateX(-50%);
+
+    }
     .hero-title { font-size: 3.5rem; }
 }
