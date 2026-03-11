@@ -99,8 +99,9 @@ header {
 
 /* --- Menus déroulants (Dropdowns) --- */
 .dropdown {
-    position: relative; /* parent du sous-menu */
-}
+    /* on met le parent de dropdown-content en relative
+    pour que dropdown-content se place correctement */
+    position: relative; }
 
 .dropdown-content {
     display: none; /* caché par défaut */
@@ -120,45 +121,49 @@ header {
     font-family: 'Shippori Mincho', serif;
 }
 
-.dropdown-content li a {
-    text-decoration: none;
-    color: var(--paper)/*#333;*/;
-    padding: 10px 20px;
-    display: block;
+.dropdown-content li a { /* liens à l'intérieur des menus déroulants*/
+    text-decoration: none; /* enlève le soulignement automatique car lien hypertext*/
+    color: var(--paper);
+    padding: 10px 20px; /*espace interne dans la sous-boxe*/
+    display: block; /*toute la sous-boxe devient cliquable */
     text-align: center; 
 }
 
-.dropdown-content li a:hover {
-    background-color: #f1f1f1;
-    color: #d62020;
+.dropdown-content li a:hover { /* quand on passe sur les liens à l'intérieur des menus déroulants*/
+    background-color: var(--paper);
+    color: var(--red);
 }
 
 /* Affichage du sous-menu quand la souris passe sur l'onglet */
 .dropdown:hover .dropdown-content {
-    display: block;
+    display: block; /*chnage l'état de la boite : none -> block*/
 }
 
-
+/* ===== MAP & CITIES ===== */
 /* --- Contenu Principal (Texte + Carte) --- */
 .content-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* CORRECTION CRUCIALE : Empêche la carte de s'étirer verticalement (règle le bug des points) */
-    padding: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: 40px;
+    display: flex; /*aligne le texte et la carte cote à cote*/
+    justify-content: space-between; /* pousse le texte au maximum à gauche et la carte au maximum à droite en mettant tout l'espace vide au milieu*/
+    align-items: center; /*empêche la carte de s'étirer verticalement
+    car par défaut flexbox étire les éléments sur toute la hauteur.
+    On centre verticalement le texte et la carte*/
+    padding: 30px; /* espace de sécurité tout autour du contenu*/
+    max-width: 1200px; /*Limite la largeur totale pour que ca reste lisible */
+    margin: 0 auto; /*centre le bloc de 1200px au milieu de l'écran*/
+    gap: 40px; /*espace minimum de 40px entre le texte et la carte
+     pour qu'ils ne se touchent jamais*/
 }
 
 /* Texte à gauche */
 .left-text {
-    width: 65%; 
+    width: 65%; /*définit la largeur de la colonne
+    par rapport à la largeur totale du conteneur parent */
 }
 
-.left-text h1 {
-    font-size: 3em;
-    font-weight: normal;
-    margin-bottom: 20px;}
+.left-text h1 { /* découvrez le Japon!*/
+    font-size: 3em; /*le titre est 3 fois plus gros que le texte normal du site*/
+    font-weight: normal; /*forces le titre à avoir une épaisseur fine/normale*/
+    margin-bottom: 20px;} /*espacement sous le titre*/
 
 .description{
     color : var(--ink);
