@@ -49,11 +49,34 @@ cities.forEach(city => { // on boucle sur les villes
     city.addEventListener('click', (event) => {
         // on vérifie qu'on n'a pas cliqué sur une flèche du carrousel
         if (!event.target.closest('.carousel-container')) {
-            const cityId = city.id; // on récupère l'id écrit dans le HTML (ex: id="Tokyo")
-            
-            window.location.href = `${cityId}.html`; // on dit au navigateur de changer de page
-            
-           
+
+            // --- LOGIQUE MOBILE : On vérifie si le carrousel est déjà ouvert ---
+            const isActive = city.classList.contains('active-mobile');
+
+            if (!isActive) {
+                // PREMIER CLIC (ou Toucher) : On affiche seulement le carrousel
+
+                // On ferme d'abord tous les autres carrousels qui pourraient être ouverts
+                document.querySelectorAll('.city').forEach(c => c.classList.remove('active-mobile'));
+                
+                // On ajoute la classe pour afficher celui-ci
+                city.classList.add('active-mobile');
+                
+                // On empêche le navigateur d'exécuter la redirection tout de suite
+                event.preventDefault();
+            } else {
+                // DEUXIÈME CLIC : Le carrousel est déjà ouvert, on redirige
+                const cityId = city.id; // on récupère l'id écrit dans le HTML (ex: id="Tokyo")
+                window.location.href = `./${cityId}.html`; // on dit au navigateur de changer de page
+            }
         }
     });
+});
+
+// 3. SECURITE : Fermer le carrousel si on clique ailleurs sur la carte
+document.addEventListener('click', (event) => {
+    // Si le clic n'est pas sur une ville, on enlève la classe active à tout le monde
+    if (!event.target.closest('.city')) {
+        document.querySelectorAll('.city').forEach(c => c.classList.remove('active-mobile'));
+    }
 });
