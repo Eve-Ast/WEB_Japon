@@ -454,7 +454,11 @@ header {
     color: var(--gold);
 }
 .tooltip-body p { font-size: 0.82rem; line-height: 1.5; color: rgba(240,235,225,0.75); }
-
+#tooltip-source{
+    font-size:0.8rem;
+    color:var(--muted);
+    text-decoration:underline;
+}
 /* ===== FOOTER ===== */
 footer {
     background: #f5f2ec;
@@ -484,7 +488,6 @@ footer {
 
 .footer-list {
     font-family: 'DM Sans', sans-serif;
-    font-size: 0.85rem;
     list-style: none;
     padding: 0;
     margin: 0;
