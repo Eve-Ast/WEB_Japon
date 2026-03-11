@@ -255,22 +255,24 @@ header {
     box-shadow: 0 0 10px #ffd700; /* ombre jaune floue de 10 pixels tout autour du point*/
 }
 
-.city:hover .city-name {
-    color: white;
-    background-color: #e60000; 
-    transform: scale(1.2); 
+.city:hover .city-name { /*quand on passe sur la ville le design change*/
+    color: var(--paper);
+    background-color: var(--red); 
+    transform: scale(1.2); /*grossit le point de 20 %*/
 }
-
+/* ===== CARROUSEL ===== */
 /* --- LE CARROUSEL D'IMAGES --- */
 .carousel-container {
-    display: none; 
-    position: absolute;
-    bottom: 25px; 
-    left: 50%; 
-    transform: translateX(-50%); 
+    display: none; /*caché par défaut*/
+    position: absolute; /* placer la boîte de photos 
+    par rapport au point de la ville*/
+    bottom: 25px; /*25 pixels au-dessus du point rouge*/
+
+    /*on force une taille fixe*/
     width: 140px; 
     height: 200px;
-    border: 3px solid white;
+
+    border: 1px solid var(--ink);
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(132, 123, 123, 0.3);
     z-index: 20;
