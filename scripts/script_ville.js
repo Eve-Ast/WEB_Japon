@@ -69,53 +69,40 @@ const tooltipImg = document.getElementById('tooltip-img');
 const tooltipName = document.getElementById('tooltip-name');
 const tooltipDesc = document.getElementById('tooltip-desc');
 
-document.querySelectorAll('.t-dot').forEach(dot => {
+document.querySelectorAll('.t-dot').forEach(dot => {/// sélections de tous les points de la frise
+    dot.addEventListener('mouseenter', (e) => { /// ajout d'un event quand on survol
 
-    dot.addEventListener('mouseenter', (e) => {
+        tooltipImg.src = dot.dataset.img; /// recupeère la valeur data-img dans le HTML
+        tooltipImg.alt = dot.dataset.event; /// definit le texte alternatif de l'image
 
-        tooltipImg.src = dot.dataset.img;
-        tooltipImg.alt = dot.dataset.event;
+        tooltipName.textContent = dot.dataset.event; /// affiche le nom de l'evenement dans le tooltip
+        tooltipDesc.textContent = dot.dataset.desc; /// affiche la description de l'image
 
-        tooltipName.textContent = dot.dataset.event;
-        tooltipDesc.textContent = dot.dataset.desc;
+        tooltip.classList.add('visible'); /// ajoute la classe CSS visible --> le tooltip devient visible
 
-        tooltip.classList.add('visible');
-
-        positionTooltip(e);
+        positionTooltip(e); /// appelle de la fonction qui place le tooltip près de la souris
     });
 
-    dot.addEventListener('mousemove', positionTooltip);
+    dot.addEventListener('mousemove', positionTooltip); /// quand la souris bouge, le tooltip suit la souris
 
     dot.addEventListener('mouseleave', () => {
         tooltip.classList.remove('visible');
-    });
+    }); /// lorsque la souris sort de l'élément on supprime la classe visible --> le tooltip disparait
 
-});
+}); 
 
-function positionTooltip(e) {
+function positionTooltip(e) { /// fonction qui calcue la position du tooltip
 
-    const margin = 16;
+    const margin = 16; // ajoute 16px d'espace autour du px
 
-    let x = e.clientX + margin;
-    let y = e.clientY + margin;
+    let x = e.clientX + margin; /// clientX = position horizontale de la souris + marge pour décaler le tooltip a droite
+    let y = e.clientY + margin; /// client Y = position vertical de la souris + marge pour décaler un peu veers le bas de la souris
 
-    const tw = tooltip.offsetWidth || 260;
-    const th = tooltip.offsetHeight || 200;
+    const tw = tooltip.offsetWidth || 260; /// offsetWidth = largeur réelle du tooltip sino on utilise 260px par défaut
+    const th = tooltip.offsetHeight || 200; /// offsetHeight = hauteur réelle du tooltip
 
-    // const 
-
-    // if (x + tw > window.innerWidth - margin) {
-    //     x = e.clientX - tw - margin;
-    // }
-
-    // if (y + th > window.innerHeight - margin) {
-    //     y = e.clientY - th - margin;
-    // }
-
-    // tooltip.style.left = x + 'px';
-    // tooltip.style.top = y + 'px';
-    const maxX = window.innerWidth - tw - margin;
-    const maxY = window.innerHeight - th - margin;
+    const maxX = window.innerWidth - tw - margin; /// innerWidth = largeur de la fenetre --> maxX=position maximale autorisée à droite
+    const maxY = window.innerHeight - th - margin; /// meme chose pour la limite basse de la fenetre
 
     // empêcher de sortir à droite
     if (x > maxX) x = maxX;
@@ -129,31 +116,31 @@ function positionTooltip(e) {
     // empêcher de sortir en haut
     if (y < margin) y = margin;
 
-    tooltip.style.left = x + "px";
-    tooltip.style.top = y + "px";
+    tooltip.style.left = x + "px"; /// position horizontale finale 
+    tooltip.style.top = y + "px"; /// position verticale finale 
 }
 
 
 // ===== MANGER CAROUSELS =====
-document.querySelectorAll('.manger-carousel').forEach(carousel => {
+document.querySelectorAll('.manger-carousel').forEach(carousel => {/// selectionne tout les élément ayant la classe manger-carousel
     const track = carousel.querySelector('.manger-track');
     const slides = carousel.querySelectorAll('.manger-slide');
     const prev = carousel.querySelector('.prev');
     const next = carousel.querySelector('.next');
 
-    let index = 0;
+    let index = 0; // stocke le slide affiché actuellement
 
-    function update() {
-        track.style.transform = `translateX(-${index * 100}%)`;
+    function update() { /// fonction qui déplace le carousel
+        track.style.transform = `translateX(-${index * 100}%)`; /// déplacement horizontale
     }
 
     next.addEventListener('click', () => {
-        index = (index + 1) % slides.length;
-        update();
+        index = (index + 1) % slides.length; /// passe au slide suivant %slides.length permet de boucler
+        update(); /// met a jour la position
     });
 
     prev.addEventListener('click', () => {
-        index = (index - 1 + slides.length) % slides.length;
-        update();
+        index = (index - 1 + slides.length) % slides.length; /// passe au slide précedent et boucle 
+        update(); /// met a jour la position 
     });
 });
