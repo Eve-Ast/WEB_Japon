@@ -103,16 +103,35 @@ function positionTooltip(e) {
     const tw = tooltip.offsetWidth || 260;
     const th = tooltip.offsetHeight || 200;
 
-    if (x + tw > window.innerWidth - margin) {
-        x = e.clientX - tw - margin;
-    }
+    // const 
 
-    if (y + th > window.innerHeight - margin) {
-        y = e.clientY - th - margin;
-    }
+    // if (x + tw > window.innerWidth - margin) {
+    //     x = e.clientX - tw - margin;
+    // }
 
-    tooltip.style.left = x + 'px';
-    tooltip.style.top = y + 'px';
+    // if (y + th > window.innerHeight - margin) {
+    //     y = e.clientY - th - margin;
+    // }
+
+    // tooltip.style.left = x + 'px';
+    // tooltip.style.top = y + 'px';
+    const maxX = window.innerWidth - tw - margin;
+    const maxY = window.innerHeight - th - margin;
+
+    // empêcher de sortir à droite
+    if (x > maxX) x = maxX;
+
+    // empêcher de sortir en bas
+    if (y > maxY) y = maxY;
+
+    // empêcher de sortir à gauche
+    if (x < margin) x = margin;
+
+    // empêcher de sortir en haut
+    if (y < margin) y = margin;
+
+    tooltip.style.left = x + "px";
+    tooltip.style.top = y + "px";
 }
 
 
