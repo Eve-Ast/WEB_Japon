@@ -14,7 +14,7 @@
 
 /* ===== PAGE ===== */
 .cv-page {
-  background: var(--paper); /* légèrement plus foncé que --paper */
+  background: var(--paper); 
   min-height: 100vh;
   padding-top: 64px;
   padding-bottom: 4rem;
@@ -199,7 +199,6 @@
   gap: 2.5rem;
   border-bottom: none;
 }
-
 
 
 .cv-skills-group {
