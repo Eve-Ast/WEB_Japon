@@ -467,9 +467,7 @@ footer {
         transform: translateX(-50%);
 
     }
-
-    /* --- AJUSTEMENT DES CARROUSELS POUR QU'ILS TIENNENT SUR L'ÉCRAN --- */
-
+    /*on adapte les carousels*/
     .city.active-mobile .carousel-container {
         display: block;
         z-index: 999;
@@ -484,7 +482,8 @@ footer {
     /* 2. On réduit les décalages (pixels) pour que les photos restent proches du point */
     
     .city.carousel-left .carousel-container {
-        right: 30px !important; /* On passe de 60px à 30px pour rester dans l'écran */
+        right: 30px !important; /* On passe de 60px à 30px pour rester dans l'écran 
+        !important force la priorité d'une règle */
     }
 
     .city.carousel-right .carousel-container {

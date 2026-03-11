@@ -1,4 +1,12 @@
 /* ===== CONFIGURATION DE LA PAGE DE RECOMMANDATION ===== */
+/*1. VARIABLES ET STRUCTURE GÉNÉRALE 
+ 2. CÔTÉ FORMULAIRE (Design Papier) 
+ 3. CÔTÉ IMAGE ET RÉSULTAT TEXTE   
+ 4. DESIGN DE LA CARTE (Identique Accueil)   
+ 5. CARROUSEL ET BOUTONS DE RÉSULTAT     
+ 6. POSITIONNEMENT DU TEXTE AUTOUR DU POINT (SYNC ACCUEIL) 
+ 7.  DESIGN RESPONSIVE (MOBILE)     */  
+
 
 /* ================================================= */
 /* 1. VARIABLES ET STRUCTURE GÉNÉRALE               */
@@ -10,30 +18,34 @@
 }
 
 .reco-container {
-    padding: 20px;
-    max-width: 1400px;
-    margin: 0 auto;
+    padding: 20px;/*espace de 20 pixels à l'intérieur du bloc pour
+     que le contenu ne touche pas les bords de l'écran*/
+    max-width: 1400px; /* Limite la largeur du contenu à 1400 pixels maximum. 
+    Cela évite que le formulaire ne soit trop étiré et illisible*/
+    margin: 0 auto; /*Centre horizontalement tout ce bloc au milieu 
+    de la fenêtre du navigateur.*/
 }
 
 .split-view {
-    display: flex;
-    min-height: 80vh;
-    gap: 20px;
+    display: flex; /*Aligne le formulaire et l'image côte à côte */
+    min-height: 80vh; /*hauteur minimale égale à 80 % de la hauteur de l'écran.*/
+    gap: 20px; /*espace de 20 pixels entre la colonne de gauche et celle de droite.*/
     background: var(--paper);
     border: 2px solid var(--ink);
 }
 
 .hidden {
-    display: none !important;
+    display: none !important; /*on cache la bien la section resultat*/
 }
 
-/* Colonnes communes */
+/* Colonnes communes au formulaire et au résultat */
 .form-side,
 .result-side {
-    flex: 1;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
+    flex: 1; /*la colonne doit occuper tout l'espace disponible*/
+    padding: 40px; /*espace interne de 40 pixels pour que le texte et 
+    les boutons ne soient pas collés aux bords du cadre*/
+    display: flex; /*Active le mode Flexbox à l'intérieur de la colonne pour organiser les éléments*/
+    flex-direction: column; /*Force les éléments à se ranger les uns sous les autres*/
 }
 
 /* ================================================= */
@@ -44,19 +56,19 @@
     font-size: 1.8rem;
     color: var(--ink);
     margin-bottom: 30px;
-    line-height: 1.4;
+    line-height: 1.4; /*espace entre les lignes*/
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 20px; /*Ajoute un espace de 20 pixels sous chaque bloc de question*/
     color: var(--ink);
 }
 
-.form-group label {
+.form-group label { /*titres des questions*/
     display: block;
     font-family: 'Shippori Mincho', serif;
     font-weight: bold;
-    margin-bottom: 8px;
+    margin-bottom: 8px; /*petit espace de 8 pixels entre la question et la zone de réponse.*/
     font-size: 1.1rem;
 }
 
@@ -280,7 +292,7 @@ select {
 }
 
 /* ================================================= */
-/* POSITIONNEMENT DU TEXTE AUTOUR DU POINT (SYNC ACCUEIL) */
+/* 6.POSITIONNEMENT DU TEXTE AUTOUR DU POINT (SYNC ACCUEIL) */
 /* ================================================= */
 
 .city.label-topleft .city-name {
@@ -320,7 +332,7 @@ select {
 }
 
 /* ================================================= */
-/* 6. DESIGN RESPONSIVE (MOBILE)                    */
+/* 7. DESIGN RESPONSIVE (MOBILE)                    */
 /* ================================================= */
 @media (max-width: 900px) {
     .split-view {
