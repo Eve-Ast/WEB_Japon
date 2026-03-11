@@ -99,21 +99,24 @@ header {
 
 /* --- Menus déroulants (Dropdowns) --- */
 .dropdown {
-    position: relative; /* Référence pour le sous-menu */
+    position: relative; /* parent du sous-menu */
 }
 
 .dropdown-content {
-    display: none; /* Caché par défaut */
-    position: absolute;
-    top: 100%;
+    display: none; /* caché par défaut */
+    position: absolute; /*met le menu au dessus du reste du contenu */
+    top: 100%; /* place la boxe exactement en dessous du parent */
+
+    /*on centre le menu déroulant en dessous de son onglet*/
     left: 50%;
     transform: translateX(-50%);
+
     background-color: var(--ink);
-    min-width: 180px; /*taille de la boxe*/
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    list-style: none;
-    padding: 10px 0;
-    border-radius: 5px;
+    min-width: 180px; /*largeur de la boxe*/
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1); /*légère ombre*/
+    list-style: none; /*enlève les puces de listes*/
+    padding: 10px 0; /*les bordure*/
+    border-radius: 5px; /*on arrondie les bordures*/
     font-family: 'Shippori Mincho', serif;
 }
 
