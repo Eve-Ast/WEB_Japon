@@ -196,7 +196,8 @@ header {
     overflow: hidden; 
     text-decoration: none;
     cursor: pointer;
-    flex: 0 1 calc(33.333% - 1rem);
+    flex: 0 1 calc(33.333% - 1rem); /*définit le comportement flexible de la carte : 0 ne grandit pas, 
+    1 peut retrecir, calc() : largeur de la carte 1 tiers du conteneurs = l'espace pour le gap*/
 }
 .sommaire-img {
     position: absolute; 
@@ -467,7 +468,7 @@ header {
     color: var(--paper);
     width: 370px; z-index: 9999;
     min-height: 180px;
-    pointer-events: none;
+    pointer-events: pointer;
     box-shadow: 0 8px 32px rgba(0,0,0,0.5);
 }
 .event-tooltip.visible { display: flex; }
@@ -482,11 +483,7 @@ header {
     color: var(--gold);
 }
 .tooltip-body p { font-size: 0.82rem; line-height: 1.5; color: rgba(240,235,225,0.75); }
-#tooltip-source{
-    font-size:0.8rem;
-    color:var(--muted);
-    text-decoration:underline;
-}
+
 /* ===== FOOTER ===== */
 footer {
     background: #f5f2ec;
