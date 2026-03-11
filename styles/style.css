@@ -4,7 +4,8 @@
    2. LAYOUT (Header, Main, Footer)
    3. MAP & CITIES
    4. CAROUSEL
-   5. RESPONSIVE
+   5. POSITIONNEMENT PLUS SPÉCIFIQUE 
+   6. DESIGN RESPONSIVE
 */
 
 /* ===== VARIABLES ===== */
@@ -272,134 +273,155 @@ header {
     width: 140px; 
     height: 200px;
 
+    /*gestion des bords*/
     border: 1px solid var(--ink);
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(132, 123, 123, 0.3);
-    z-index: 20;
-    background-color: black;
-    overflow: hidden; 
+
+    box-shadow: 0 4px 10px rgba(132, 123, 123, 0.3); /*petite ombre*/
+    z-index: 20; /* les photos passent devant tout le reste */
+    background-color: var(--ink);
+    overflow: hidden; /*n'affiche pas ce qui dépasse du cadre*/
 }
 
-.city:hover .carousel-container {
+.city:hover .carousel-container { /*quand le curseur est sur le nom
+    de la ville, le carousel apparait*/
     display: block; 
 }
 
 .carousel-images {
+    /*occupe la totalité de l'espace à l'intérieur du cadre */
     width: 100%;
     height: 100%;
-    position: relative;
+    position: relative; /*ltes photos vont s'empiler exactement 
+    les unes sur les autres au même endroit*/
 }
 
 .carousel-images img {
+    /*l'image occupe 100% du container*/
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /*remplir le cadre sans "écraser" ou "déformer" l'image*/
+
+    /*les photos sont toutes en "absolute" au même endroit,
+     elles sont empilées les unes sur les autres*/
     position: absolute;
     top: 0;
     left: 0;
-    opacity: 0;
-    transition: opacity 0s ease-in-out; 
+
+    opacity: 0;/*par défaut, toutes les photos sont totalement invisibles*/
+    transition: opacity 0s ease-in-out; /*prépare le terrain pour une animation de fondu*/
 }
 
-.carousel-images img.active {
-    opacity: 1;
-    z-index: 1;
+.carousel-images img.active { /*cible uniquement l'image qui possède
+    la classe "active" (celle que le script a décidé de 
+    montrer à un instant t*/
+    opacity: 1; /*rend l'image 100 % visible*/
+    z-index: 1; /*place cette photo au-dessus de la pile*/
 }
 
 /* --- BOUTONS PRECEDENT / SUIVANT --- */
 .carousel-btn {
-    position: absolute;
+    position: absolute; /* place les boutons par-dessus les images*/
+
+    /*centre le bouton */
     top: 50%;
     transform: translateY(-50%);
+
     background-color: rgba(0, 0, 0, 0.5); 
-    color: white;
+    color: var(--paper);
     border: none;
-    cursor: pointer;
-    padding: 5px 8px;
-    font-size: 12px;
-    z-index: 10;
-    border-radius: 50%;
-    transition: 0.2s;
+    cursor: pointer; /*transforme le curseur en petite main */
+    padding: 5px 8px; /*espacement interne*/
+    font-size: 12px; 
+    z-index: 10; /*force les boutons à rester au-dessus des images*/
+    border-radius: 50%; /*transforme le carré des boutons en cercle*/
+    transition: 0.2s; /*fluidifie la transition ci dessous*/
 }
 
-.carousel-btn:hover {
-    background-color: red; 
+.carousel-btn:hover { /*quand on survol le bouton*/
+    background-color: var(--red); 
 }
 
-.carousel-btn.prev { left: 5px; }
-.carousel-btn.next { right: 5px; }
+.carousel-btn.prev { left: 5px; } /*placement à pres du bord gauche*/
+.carousel-btn.next { right: 5px; } /*placement à pres du bord droit*/
 
 /* ===== FOOTER ===== */
 footer {
-    background: #f5f2ec;
+    background: var(--paper);
     border-top: 1px solid rgba(201,168,76,0.15);
-    padding: 1rem 5vw; text-align: center;
+    padding: 1rem 5vw; /*5vw = 5 % de la largeur de l'écran*/
+    text-align: center;
     color: var(--ink);
 }
-.footer-link { color: var(--ink); text-decoration: none; font-size: 1rem; }
+
+.footer-link { 
+    color: var(--ink);
+    text-decoration: none; /* enlève le soulignement automatique car lien hypertext*/
+    font-size: 1rem; }
+
 .footer-link:hover { color: var(--red); }
 
-/* ================================================= */
-/* --- POSITIONNEMENT DU TEXTE AUTOUR DU POINT --- */
-/* ================================================= */
+/* ===== POSITIONNEMENT DU TEXTE AUTOUR DU POINT ===== */
 
-.city.label-topleft .city-name {
-    position: absolute; 
+.city.label-topleft .city-name { /*Kyoto*/
+    position: absolute; /* détache le texte pour le placer 
+    librement par rapport au point rouge*/
     bottom: 5px; 
     right: 10px; 
-    margin-top: 0;
+    margin-top: 0; /*supprime la marge du haut par défaut
+     pour éviter de fausser le calcul du placement*/
 }
 
-.city.label-topright .city-name {
+.city.label-topright .city-name { /*Takahama*/
     position: absolute; 
     bottom: 5px; 
     left: 15px; 
     margin-top: 0;
 }
 
-.city.label-left .city-name {
+.city.label-left .city-name { /*Kobe*/
     position: absolute; 
     right: 10px; 
     top: -2px; 
     margin-top: 0;
 }
 
-.city.label-right .city-name {
+.city.label-right .city-name { /* Uji& Nara */
     position: absolute; 
     left: 15px; 
     top: -5px; 
     margin-top: 0;
 }
 
-/* ================================================= */
-/* --- POSITIONS SPÉCIFIQUES DES PHOTOS --- */
-/* ================================================= */
+/* ===== POSITIONS SPÉCIFIQUES DES PHOTOS===== */
 
-.city.carousel-bottom .carousel-container {
-    bottom: auto;
-    top: 100%; 
+.city.carousel-bottom .carousel-container { /* Nara & Osaka */
+    bottom: auto; /*Annule le réglage par défaut 
+    (qui plaçait normalement les photos 25px au-dessus du point)*/
+    top: 100%; /*Aligne le haut du cadre photo sur le point rouge, 
+    ce qui le place donc en dessous*/
     margin-top: 4px; 
 }
 
-.city.carousel-left .carousel-container {
+.city.carousel-left .carousel-container { /*Kobe*/
     bottom: auto;
-    top: 50%;
-    transform: translateY(-50%); 
     left: auto;
-    right: 60px; 
+    top: 50%;
+    transform: translateY(-50%); /*on centre la pht par rapport au point*/
+    right: 60px; /*Pousse le cadre photo vers la gauche.
+     Il s'arrête à 60 pixels de distance du point rouge.*/
 }
 
-.city.carousel-right .carousel-container {
+.city.carousel-right .carousel-container { /*Uji & Tokyo */
     bottom: auto;
     top: 50%;
     transform: translateY(-50%); 
-    left: 52px; 
+    left: 52px; /*Pousse le cadre photo vers la droite.
+     Il s'arrête à 52 pixels de distance du point rouge.*/
 }
 
 
-/* ================================================= */
-/* --- DESIGN RESPONSIVE (Téléphones & Tablettes) --- */
-/* ================================================= */
+/* ===== DESIGN RESPONSIVE ===== */
 
 /* Pour les écrans moyens (Tablettes et petits ordinateurs) */
 @media (max-width: 1024px) {
