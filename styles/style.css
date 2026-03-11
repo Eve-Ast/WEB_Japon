@@ -424,15 +424,16 @@ footer {
 /* ===== DESIGN RESPONSIVE ===== */
 
 /* Pour les écrans moyens (Tablettes et petits ordinateurs) */
-@media (max-width: 1024px) {
-    .content-wrapper {
+@media (max-width: 1024px) { /*condition : on applique ces regles seulement si
+    l'écran fait 1024px ou moins*/
+    .content-wrapper { 
         flex-direction: column; /* Le texte passe en haut, la carte en bas */
-        padding: 20px;
+        padding: 20px; /*On réduit un peu l'espace sur les côtés pour gagner de la place*/
     }
     .left-text {
-        width: 100%;
-        text-align: center; /* Centre le texte principal */
-        margin-bottom: 20px;
+        width: 100%; /*Le texte n'est plus limité à 65 %, 
+        il occupe maintenant toute la largeur de l'écran*/
+        text-align: center; /* Centre le texte */
     }
     .map-container {
         width: 100%; /* La carte prend toute la largeur disponible */
@@ -441,7 +442,8 @@ footer {
 }
 
 /* Pour les petits écrans (Téléphones) */
-@media (max-width: 768px) {
+@media (max-width: 768px) { /*condition : on applique ces regles seulement si
+    l'écran fait 768px ou moins*/
     header {
         justify-content: space-between;
         padding: 0 15px;
@@ -458,4 +460,10 @@ footer {
     .left-text h1 {
         font-size: 2.2em; /* Réduit la taille du grand titre "Découvrez le Japon" */
     }
+    .city.active-mobile .carousel-container {
+    display: block;} 
+
+    .city.active-mobile .dot {
+    background-color: #ffd700;
+    transform: scale(1.3);}
 }
