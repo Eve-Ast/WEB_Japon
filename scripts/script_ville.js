@@ -7,61 +7,60 @@ const track = document.getElementById('carousel-track');
 const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
 
-if (track && prevBtn && nextBtn) {
-    let currentIndex = 0;
+if (track && prevBtn && nextBtn) { /// verification que les différents boutons existent
+    let currentIndex = 0; /// variable qui stocke la position actuelle du carousel
 
     const itemWidth = () => {
         const item = track.querySelector('.carousel-item');
         return item ? item.offsetWidth + 19 : 280;
-    };
-    const totalItems = () => track.querySelectorAll('.carousel-item').length;
-    const visibleCount = () => Math.floor(track.parentElement.offsetWidth / itemWidth());
-    const needsCarousel = () => totalItems() > visibleCount();
+    }; /// fonction qui renvoie la largeur de la carte + espace 
+    const totalItems = () => track.querySelectorAll('.carousel-item').length; /// sélectionne toutes les cartes et retourne leur nombre 
+    const visibleCount = () => Math.floor(track.parentElement.offsetWidth / itemWidth()); /// calcule combien de cartes peuvent être visisble dans l'écran
+    const needsCarousel = () => totalItems() > visibleCount(); /// permet de déterminer si on a besoin ou non d'un carousel renvoie false si tout les cartes tiennent dans l'écran
 
-    function updateCarouselAlignment() {
-        if (needsCarousel()) {
-            track.style.justifyContent = 'flex-start';
-            prevBtn.style.visibility = 'visible';
+    function updateCarouselAlignment() { /// Fonction qui décide de centrer les cartes ou activer le carousel
+        if (needsCarousel()) { /// cas besoin d'un carousel
+            track.style.justifyContent = 'flex-start'; // aligne les cartes à gauche
+            prevBtn.style.visibility = 'visible'; /// affiche les boutons
             nextBtn.style.visibility = 'visible';
-        } else {
-            track.style.justifyContent = 'center';
-            track.style.transform = 'none';
-            currentIndex = 0;
-            prevBtn.style.visibility = 'hidden';
+        } else { /// cas pas besoin d'un carousel
+            track.style.justifyContent = 'center';// centre les cartes
+            track.style.transform = 'none'; /// Supprime toutes translation
+            currentIndex = 0; /// reinitialise la position
+            prevBtn.style.visibility = 'hidden'; /// masque les boutons
             nextBtn.style.visibility = 'hidden';
         }
     }
 
-    function updateCarousel() {
-        if (!needsCarousel()) return;
-        const max = totalItems() - visibleCount();
-        if (currentIndex < 0) currentIndex = 0;
-        if (currentIndex > max) currentIndex = max;
-        track.style.transform = `translateX(-${currentIndex * itemWidth()}px)`;
+    function updateCarousel() { /// Fonction qui déplace les cartes 
+        if (!needsCarousel()) return; /// si on n'a pas besoin d'un carousel ona rrête la fonction
+        const max = totalItems() - visibleCount(); /// position max possible
+        if (currentIndex < 0) currentIndex = 0; /// empeche de dépasser a gauche
+        if (currentIndex > max) currentIndex = max; /// empeche de depasser à droite
+        track.style.transform = `translateX(-${currentIndex * itemWidth()}px)`; /// deplacement horizontale
     }
 
-    prevBtn.addEventListener('click', () => { currentIndex--; updateCarousel(); });
-    nextBtn.addEventListener('click', () => { currentIndex++; updateCarousel(); });
+    prevBtn.addEventListener('click', () => { currentIndex--; updateCarousel(); }); /// diminue l'index
+    nextBtn.addEventListener('click', () => { currentIndex++; updateCarousel(); }); /// augmente l'index
 
-    // Touch / swipe support
-    let touchStartX = 0;
-    track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
-    track.addEventListener('touchend', e => {
-        const diff = touchStartX - e.changedTouches[0].clientX;
-        if (Math.abs(diff) > 50) {
-            diff > 0 ? currentIndex++ : currentIndex--;
-            updateCarousel();
+    // Touch / swipe support pour mobile tactile
+    let touchStartX = 0; /// stocke position du doigt
+    track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }); /// enregistre position initiale du doigt
+    track.addEventListener('touchend', e => { /// detecte la fin du geste
+        const diff = touchStartX - e.changedTouches[0].clientX; /// calcule la distance du swipe
+        if (Math.abs(diff) > 50) { /// Ignore les petits mouvements
+            diff > 0 ? currentIndex++ : currentIndex--; /// swipe gauche = suivant / swipe droit = précedent
+            updateCarousel(); /// met à jour le déplacement
         }
-    });
+    }); 
 
-    window.addEventListener('load', updateCarouselAlignment);
+    window.addEventListener('load', updateCarouselAlignment); /// quand la page charge ajuste l'aligneemnt
     window.addEventListener('resize', () => {
         updateCarouselAlignment();
         updateCarousel();
-    });
+    }); /// Quand la fenetre change de taille : recalcul des cartes visible et repositionnement du carousel
 }
-window.addEventListener('load', updateCarouselAlignment);
-window.addEventListener('resize', updateCarouselAlignment);
+
 
 
 // ===== FRISE ÉVÉNEMENTS =====
