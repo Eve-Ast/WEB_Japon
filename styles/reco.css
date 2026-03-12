@@ -344,14 +344,14 @@ select {
 /* ================================================= */
 /* 7. DESIGN RESPONSIVE (MOBILE)                    */
 /* ================================================= */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
     .split-view {
-        flex-direction: column;
+        flex-direction: column; /*on  empile le texte et l'image l'un sur l'autre*/
     }
 
     .image-side {
         height: 250px;
-        order: 2;
+        order: 2; /*l'image passe en second*/
     }
 
     .form-side,
@@ -368,10 +368,10 @@ select {
 
     .map-result-container {
         max-width: 100%;
-        margin-bottom: 100px;
+        margin-bottom: 100px; /*Ajoute un grand espace sous la carte*/
     }
 
-    .carousel-result {
+    .carousel-result { /*On déplace le cadre photo pour qu'il s'affiche en bas à droite */
         right: 10px;
         bottom: -70px;
         width: 130px;
